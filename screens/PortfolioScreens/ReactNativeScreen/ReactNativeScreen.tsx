@@ -1,11 +1,10 @@
 import React from "react";
 import { Text } from "react-native";
-import { ScreenLayout } from "components";
+import { ScreenLayout } from "../../../components";
 
-export const HomeScreen = () => {
+export const ReactNativeScreen = () => {
   return (
     <ScreenLayout>
-      <ScreenLayout.Header title="Home" />
       <ScreenLayout.Info>
         <Text>Native Screen</Text>
       </ScreenLayout.Info>
