@@ -1,8 +1,15 @@
 import React from "react";
-import { View } from "react-native";
+import { StyledInfoView, StyledInfoText } from "./ScreenLayout.styles";
 
 export const ScreenLayoutInfo = ({
   children,
+  infoText,
 }: {
-  children: React.ReactNode;
-}) => <View style={{ flex: 1 }}>{children}</View>;
+  children?: React.ReactNode;
+  infoText?: string;
+}) => (
+  <StyledInfoView>
+    {infoText && <StyledInfoText>{infoText}</StyledInfoText>}
+    {children}
+  </StyledInfoView>
+);

@@ -13,10 +13,10 @@ export const Layout = {
     height,
   },
   tabBar: {
-    width: width,
+    width,
     height: height * 0.1,
   },
-  button: {
+  content: {
     width: width * 0.8,
     height: height * 0.04,
     half: width * 0.28,

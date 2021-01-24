@@ -17,7 +17,8 @@ export interface StyledBaseTextProps extends TypographyProps, ThemeProps {
 
 export const StyledBaseText = styled.Text<StyledBaseTextProps>`
   font-family: ${typography.fontFamily.primary};
+  font-size: 16px;
   font-weight: ${(props) =>
     typography.fontWeight[props.fontWeight || "regular"]};
-  color: ${(props) => props.theme[props.fontColour || "primary"]};
+  color: ${(props) => props.theme[props.fontColour || "text"]};
 `;

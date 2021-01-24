@@ -9,13 +9,16 @@ import {
   neuDepth,
   NeuDepthProps,
   Layout,
+  typography,
 } from "../../constants";
 
 export interface StyledTopTabsBarProps
   extends TypographyProps,
     NeuDepthProps,
     ThemeProps {
-  bulb?: boolean;
+  buttonWidth?: string;
+  isFocused?: boolean;
+  hasThreeButtons?: boolean;
 }
 
 const tabBarHeight = Layout.tabBar.height * 0.75;
@@ -25,8 +28,17 @@ const threeButtons = Layout.tabBar.width / 3;
 const AnimatedNeomorph = Animated.createAnimatedComponent(Neomorph);
 const AnimatedText = Animated.Text;
 
-const buttonShape = css`
-  shadow-offset: 0px 0px;
+const activeButton = css`
+  shadow-offset: -6px -6px;
+  background: ${(props) => props.theme.tint};
+`;
+const activeText = css`
+  color: ${(props) => props.theme.ctaText};
+  font-weight: ${typography.fontWeight.semiBold};
+  font-size: 18px;
+`;
+const thirdWidth = css`
+  width: ${threeButtons}px;
 `;
 
 export const StyledTopTabContainer = styled(
@@ -45,11 +57,11 @@ export const StyledPressable = styled(Pressable)<StyledTopTabsBarProps>``;
 
 export const StyledNeuShadow = styled(AnimatedNeomorph)<StyledTopTabsBarProps>`
   height: ${tabBarHeight}px;
-  width: ${[twoButtons]}px;
+  width: ${twoButtons}px;
   background: ${(props) => props.theme.background};
   shadow-radius: ${(props) => neuDepth[props.depth || "normal"]};
-  shadow-offset: -6px -6px;
-  ${(props) => props.bulb && buttonShape}
+  ${(props) => props.isFocused && activeButton};
+  ${(props) => props.hasThreeButtons && thirdWidth};
 `;
 
 export const StyledTextWrapper = styled.View`
@@ -57,7 +69,9 @@ export const StyledTextWrapper = styled.View`
   flex: 1;
 `;
 
-export const StyledTabText = styled(AnimatedText)`
+export const StyledTabText = styled(AnimatedText)<StyledTopTabsBarProps>`
   text-align: center;
-  color: ${(props) => props.theme.primary};
+  color: ${(props) => props.theme.ctaText};
+  font-size: 16px;
+  ${(props) => props.isFocused && activeText}
 `;

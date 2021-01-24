@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 
 import {
   StyledNeuShadow,
@@ -14,12 +14,12 @@ export const TopTabsBar: FC<TopTabsBarProps> = ({
   state,
   descriptors,
   navigation,
+  hasThreeButtons,
 }) => (
   <StyledTopTabContainer>
     {state.routes.map((route, index) => {
       const { options } = descriptors[route.key];
       const label = options.title !== undefined ? options.title : route.name;
-
       const isFocused = state.index === index;
 
       const onPress = () => {
@@ -47,9 +47,11 @@ export const TopTabsBar: FC<TopTabsBarProps> = ({
             key={index}
             onPress={onPress}
             onLongPress={onLongPress}>
-            <StyledNeuShadow bulb={!isFocused}>
+            <StyledNeuShadow
+              hasThreeButtons={hasThreeButtons}
+              isFocused={isFocused}>
               <StyledTextWrapper>
-                <StyledTabText>{label}</StyledTabText>
+                <StyledTabText isFocused={isFocused}>{label}</StyledTabText>
               </StyledTextWrapper>
             </StyledNeuShadow>
           </StyledPressable>

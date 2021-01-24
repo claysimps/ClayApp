@@ -1,4 +1,5 @@
 export * from "./BottomTabsBar";
+export * from "./Divider";
 export * from "./Icon";
 export * from "./ScreenLayout";
 export * from "./Text";

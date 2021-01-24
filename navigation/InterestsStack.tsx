@@ -25,12 +25,12 @@ export const InterestsStack = () => (
           tabBar={(props) => <TopTabsBar {...props} />}
           initialRouteName={SCREENS.ReactNativePortfolio}>
           <InterestsTopTabs.Screen
-            options={{ title: "React Native" }}
+            options={{ title: "L&D" }}
             name={SCREENS.ReactNativePortfolio}
             component={ReactNativeScreen}
           />
           <InterestsTopTabs.Screen
-            options={{ title: "React" }}
+            options={{ title: "Music" }}
             name={SCREENS.ReactPortfolio}
             component={ReactScreen}
           />

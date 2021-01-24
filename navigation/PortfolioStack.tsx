@@ -23,7 +23,7 @@ export const PortfolioStack = () => (
     <Stack.Screen name={SCREENS.PortfolioStack}>
       {() => (
         <PortfolioTopTabs.Navigator
-          tabBar={(props) => <TopTabsBar {...props} />}
+          tabBar={(props) => <TopTabsBar hasThreeButtons {...props} />}
           initialRouteName={SCREENS.ReactNativePortfolio}>
           <PortfolioTopTabs.Screen
             options={{ title: "React Native" }}
