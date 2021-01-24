@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import { AsyncStorage, StatusBar } from "react-native";
+import { StatusBar } from "react-native";
 import { ThemeProvider } from "styled-components/native";
+import AsyncStorage from "@react-native-community/async-storage";
 
 import { ThemeModeEnum, setThemeMode } from "state";
 import { getThemeMode } from "selectors";
