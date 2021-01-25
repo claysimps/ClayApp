@@ -4,7 +4,6 @@ import styled, { css } from "styled-components/native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import {
-  ThemeProps,
   TypographyProps,
   neuDepth,
   NeuDepthProps,
@@ -12,10 +11,7 @@ import {
   typography,
 } from "../../constants";
 
-export interface StyledTopTabsBarProps
-  extends TypographyProps,
-    NeuDepthProps,
-    ThemeProps {
+export interface StyledTopTabsBarProps extends TypographyProps, NeuDepthProps {
   buttonWidth?: string;
   isFocused?: boolean;
   hasThreeButtons?: boolean;
