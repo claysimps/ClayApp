@@ -2,13 +2,22 @@ import styled, { css } from "styled-components/native";
 import { Pressable, Animated } from "react-native";
 import { Neomorph } from "react-native-neomorph-shadows";
 
-import { Layout, ThemeProps, neuDepth, NeuDepthProps } from "../../constants";
+import {
+  Layout,
+  ThemeProps,
+  neuDepth,
+  NeuDepthProps,
+  light,
+  dark,
+  red,
+} from "../../constants";
 import { StyledBaseText } from "../Text";
 import { Icon } from "../Icon";
 
 export interface StyledBottomTabProps extends NeuDepthProps, ThemeProps {
   isActive?: boolean;
   bulb?: boolean;
+  iconColor?: typeof light.theme | typeof dark.theme | typeof red.theme;
 }
 
 const AnimatedNeomorph = Animated.createAnimatedComponent(Neomorph);
