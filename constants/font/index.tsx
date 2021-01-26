@@ -1,2 +1,2 @@
 export { font } from "./font";
-export * from "./font.types";
+export type { FontProps } from "./font.types";

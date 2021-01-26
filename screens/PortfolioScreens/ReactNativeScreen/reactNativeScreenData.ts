@@ -1,7 +1,13 @@
+import { PortfolioCardProps } from "../../../containers";
+
+export interface ReactNativeScreenDataProps extends PortfolioCardProps {
+  id: string;
+}
+
 export const screenInfo =
   "Here, you will find a list of React Native projects that I’ve built or worked on, along with more information and and further options. ";
 
-export const reactNativeScreenData = [
+export const reactNativeScreenData: Array<ReactNativeScreenDataProps> = [
   {
     id: "calculator",
     headerTitle: "Cool Calculator",
@@ -20,7 +26,7 @@ export const reactNativeScreenData = [
   },
   {
     id: "clayApp",
-    headerTitle: " Clay App",
+    headerTitle: "Clay App",
     headerBody: "TypeScript",
     headerFooter: "Bare bones React Native app",
     cardBodyText:

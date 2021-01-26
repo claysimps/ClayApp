@@ -1,14 +1,14 @@
 import React from "react";
 import { FlatList } from "react-native";
 import { ScreenLayout, Divider } from "components";
-import { PortfolioBodyContainer, PortfolioCardProps } from "containers";
+import { PortfolioContainer, PortfolioCardProps } from "containers";
 import { reactNativeScreenData, screenInfo } from "./reactNativeScreenData";
 
 type ItemProps = { item: PortfolioCardProps };
 
 export const ReactNativeScreen = () => {
   const portfolioCard = ({ item }: ItemProps) => (
-    <PortfolioBodyContainer
+    <PortfolioContainer
       headerTitle={item.headerTitle}
       headerBody={item.headerBody}
       headerFooter={item.headerFooter}
