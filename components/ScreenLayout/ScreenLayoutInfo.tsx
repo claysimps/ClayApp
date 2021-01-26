@@ -1,5 +1,6 @@
 import React from "react";
 import { StyledInfoView, StyledInfoText } from "./ScreenLayout.styles";
+import { ScrollView } from "react-native-gesture-handler";
 
 export const ScreenLayoutInfo = ({
   children,
@@ -9,7 +10,9 @@ export const ScreenLayoutInfo = ({
   infoText?: string;
 }) => (
   <StyledInfoView>
-    {infoText && <StyledInfoText>{infoText}</StyledInfoText>}
-    {children}
+    <ScrollView>
+      {infoText && <StyledInfoText>{infoText}</StyledInfoText>}
+      {children}
+    </ScrollView>
   </StyledInfoView>
 );

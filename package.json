@@ -71,7 +71,9 @@
     "moduleNameMapper": {
       "^assets/(.*)": "<rootDir>/assets/$1",
       "^hooks/(.*)": "<rootDir>/hooks/$1",
+      "^components/(.*)": "<rootDir>/components/$1",
       "^constants/(.*)": "<rootDir>/constants/$1",
+      "^containers/(.*)": "<rootDir>/containers/$1",
       "^navigation/(.*)": "<rootDir>/navigation/$1",
       "^screens/(.*)": "<rootDir>/screens/$1",
       "^selectors/(.*)": "<rootDir>/selectors/$1",

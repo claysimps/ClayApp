@@ -1,11 +1,18 @@
 import { Animated } from "react-native";
 import { Neomorph } from "react-native-neomorph-shadows";
 import styled from "styled-components/native";
-import { typography } from "../../constants/typography";
-import { NeuDepthProps, neuDepth } from "../../constants/neuDepth";
-import { ThemeProps } from "../../constants/themes/themes.types";
+import {
+  NeuDepthProps,
+  neuDepth,
+  font,
+  ThemeProps,
+  Layout,
+  light,
+  dark,
+  red,
+} from "../../constants";
+
 import { StyledBaseText } from "../Text";
-import { Layout, light, dark, red } from "../../constants";
 
 export interface StyledCardProps extends NeuDepthProps, ThemeProps {
   fill?: boolean;
@@ -32,21 +39,19 @@ export const StyledCardHeader = styled.View<StyledCardProps>`
   align-items: center;
   border-top-left-radius: 35px;
   border-top-right-radius: 35px;
-  min-height: 60px;
+  min-height: 85px;
   background: ${(props) => props.theme.primary};
 `;
 
 export const StyledCardBodyWrapper = styled.View<StyledCardProps>`
   height: 180px;
-  align-items: center;
   flex-direction: row;
   flex: 1;
+  padding: 5px;
 `;
 
 export const StyledCardBodyButtonWrapper = styled.View<StyledCardProps>`
   height: 180px;
-
-  /* align-items: center; */
   justify-content: center;
   flex-direction: row;
   flex: 1;
@@ -71,7 +76,7 @@ export const StyledHeaderText = styled(StyledBaseText)`
 export const StyledBodyText = styled.Text<StyledCardProps>`
   padding: 20px 15px 0px;
   align-content: space-between;
-  font-family: ${typography.fontFamily.primary};
-  font-weight: ${typography.fontWeight.regular};
+  font-family: ${font.fontFamily.primary};
+  font-weight: ${font.fontWeight.regular};
   color: ${(props) => props.theme.text};
 `;
