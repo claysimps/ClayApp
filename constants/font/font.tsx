@@ -1,4 +1,4 @@
-export const typography = {
+export const font = {
   fontFamily: { primary: "Nunito" },
   fontWeight: {
     extraLight: 200,

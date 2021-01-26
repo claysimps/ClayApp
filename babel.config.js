@@ -19,6 +19,7 @@ module.exports = {
         alias: {
           components: "./components",
           constants: "./constants",
+          containers: "./containers",
           hooks: "./hooks",
           navigation: "./navigation",
           screens: "./screens",

@@ -17,7 +17,7 @@ export const Layout = {
     height: height * 0.1,
   },
   content: {
-    width: width * 0.8,
+    width: width * 0.85,
   },
   button: {
     width: width * 0.8,
@@ -25,7 +25,7 @@ export const Layout = {
     height: height * 0.04,
   },
   cardSize: {
-    width: width * 0.8,
-    height: height * 0.25,
+    width: width * 0.75,
+    height: height * 0.3,
   },
 };

@@ -4,20 +4,24 @@ import styled, { css } from "styled-components/native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import {
-  TypographyProps,
+  FontProps,
   neuDepth,
   NeuDepthProps,
   Layout,
-  typography,
+  font,
+  ThemeProps,
 } from "../../constants";
 
-export interface StyledTopTabsBarProps extends TypographyProps, NeuDepthProps {
+export interface StyledTopTabsBarProps
+  extends FontProps,
+    NeuDepthProps,
+    ThemeProps {
   buttonWidth?: string;
   isFocused?: boolean;
   hasThreeButtons?: boolean;
 }
 
-const tabBarHeight = Layout.tabBar.height * 0.75;
+const tabBarHeight = Layout.tabBar.height * 0.6;
 const tabBarWidth = Layout.tabBar.width;
 const twoButtons = Layout.tabBar.width / 2;
 const threeButtons = Layout.tabBar.width / 3;
@@ -30,16 +34,14 @@ const activeButton = css`
 `;
 const activeText = css`
   color: ${(props) => props.theme.ctaText};
-  font-weight: ${typography.fontWeight.semiBold};
+  font-weight: ${font.fontWeight.semiBold};
   font-size: 18px;
 `;
 const thirdWidth = css`
   width: ${threeButtons}px;
 `;
 
-export const StyledTopTabContainer = styled(
-  SafeAreaView,
-)<StyledTopTabsBarProps>`
+export const StyledTopTabContainer = styled.SafeAreaView<StyledTopTabsBarProps>`
   flex-direction: row;
   align-items: center;
   width: ${tabBarWidth}px;
@@ -58,6 +60,7 @@ export const StyledNeuShadow = styled(AnimatedNeomorph)<StyledTopTabsBarProps>`
   shadow-radius: ${(props) => neuDepth[props.depth || "normal"]};
   ${(props) => props.isFocused && activeButton};
   ${(props) => props.hasThreeButtons && thirdWidth};
+  margin-bottom: 10px;
 `;
 
 export const StyledTextWrapper = styled.View`
