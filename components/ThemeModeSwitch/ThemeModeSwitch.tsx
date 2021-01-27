@@ -13,7 +13,7 @@ import { useAppDispatch } from "hooks";
 
 export interface CalculatorProps {}
 
-const { LIGHT, DARK, PINK } = ThemeModeEnum;
+const { LIGHT, DARK } = ThemeModeEnum;
 
 export const ThemeModeSwitch: FC<CalculatorProps> = () => {
   const { themeMode } = useSelector(getThemeMode);
