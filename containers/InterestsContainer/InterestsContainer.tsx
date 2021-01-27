@@ -1,5 +1,4 @@
 import React from "react";
-import ReadMore from "react-native-read-more-text";
 import { InterestsProps } from "./InterestsContainer.types";
 import {
   StyledInterestsListContainer,
@@ -26,11 +25,9 @@ export const InterestsContainer = ({
         <StyledInterestsText fontSize={18} fontWeight="bold">
           {type}
         </StyledInterestsText>
-        <ReadMore numberOfLines={2}>
-          <StyledInterestsText fontSize={16} fontWeight="regular">
-            {moreInfo}
-          </StyledInterestsText>
-        </ReadMore>
+        <StyledInterestsText fontSize={16} fontWeight="regular">
+          {moreInfo}
+        </StyledInterestsText>
       </StyledInterestsWrapper>
       <Divider raisedDivider />
     </StyledInterestsListContainer>
