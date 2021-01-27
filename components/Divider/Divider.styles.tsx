@@ -11,7 +11,8 @@ import {
   Layout,
 } from "../../constants";
 
-const dividerWidth = Layout.window.width;
+const screenDivider = Layout.window.width;
+const infoDivider = Layout.content.width;
 
 export interface StyledDividerProps extends NeuDepthProps, ThemeProps {
   raisedDivider?: boolean;
@@ -23,6 +24,7 @@ const raised = css<StyledDividerProps>`
   shadow-radius: ${(props) => neuDepth[props.depth || "tall"]};
   height: 15px;
   shadow-offset: 0px 0px;
+  width: ${infoDivider}px;
 `;
 
 export const StyledDividerContainer = styled.View`
@@ -32,7 +34,7 @@ export const StyledDividerContainer = styled.View`
 const AnimatedNeomorph = Animated.createAnimatedComponent(Neomorph);
 
 export const StyledNeuDivider = styled(AnimatedNeomorph)<StyledDividerProps>`
-  width: ${dividerWidth}px;
+  width: ${screenDivider}px;
   height: 5px;
   justify-content: center;
   align-items: center;
