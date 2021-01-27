@@ -30,7 +30,6 @@ export const StyledCardContainer = styled(AnimatedNeomorph)<StyledCardProps>`
   width: ${Layout.cardSize.width}px;
   height: ${Layout.cardSize.height}px;
   background: ${(props) => props.theme.background};
-  border: 1px solid ${(props) => props.theme.primary};
   shadow-radius: ${(props) => neuDepth[props.depth || "tall"]};
 `;
 
@@ -47,7 +46,7 @@ export const StyledCardBodyWrapper = styled.View<StyledCardProps>`
   height: 180px;
   flex-direction: row;
   flex: 1;
-  padding: 5px;
+  padding: 15px;
 `;
 
 export const StyledCardBodyButtonWrapper = styled.View<StyledCardProps>`
@@ -67,7 +66,6 @@ export const StyledCardBodyButtonContainer = styled.View<StyledCardProps>`
 `;
 
 export const StyledHeaderText = styled(StyledBaseText)`
-  padding: 0px 15px;
   font-weight: 900;
   font-size: 14px;
   color: white;
