@@ -8,4 +8,5 @@ export enum SCREENS {
   InterestsStack = "InterestsStack",
   SettingsStack = "SettingsStack",
   BooksScreen = "BooksScreen",
+  SettingsScreen = "SettingsScreen",
 }

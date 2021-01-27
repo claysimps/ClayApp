@@ -56,10 +56,7 @@ export const BottomTabsBar: FC<BottomTabsBarProps> = ({
               key={index}
               onPress={onPress}
               onLongPress={onLongPress}>
-              <StyledNeuShadow
-                bulb={!isFocused}
-                // inner
-              >
+              <StyledNeuShadow bulb={isFocused}>
                 <StyledDetailWrapper>
                   <StyledTabIcon key={index} name={iconName} size="large" />
                   <StyledButtonText isActive={isFocused}>

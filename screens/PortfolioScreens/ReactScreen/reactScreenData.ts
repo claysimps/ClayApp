@@ -5,7 +5,7 @@ export interface ReactScreenDataProps extends PortfolioCardProps {
 }
 
 export const screenInfo =
-  "Here, you will find a list of React projects that I’ve worked on, along with more information and and further options. ";
+  "Here, you will find a list of React projects that I’ve worked on, along with more information and further options. ";
 
 export const reactScreenData: Array<ReactScreenDataProps> = [
   {

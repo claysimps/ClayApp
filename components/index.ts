@@ -6,3 +6,4 @@ export * from "./Text";
 export * from "./ThemeManager";
 export * from "./TopTabsBar";
 export * from "./Card";
+export * from "./UnicornButton";

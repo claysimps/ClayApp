@@ -1,6 +1,6 @@
 const mainColourRed = "#FFF";
 
-export const red = {
+export const pink = {
   theme: {
     text: "#000000",
     secondaryText: "#FFFFFF",

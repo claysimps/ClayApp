@@ -9,14 +9,14 @@ import {
   Layout,
   light,
   dark,
-  red,
+  pink,
 } from "../../constants";
 
 import { StyledBaseText } from "../Text";
 
 export interface StyledCardProps extends NeuDepthProps, ThemeProps {
   fill?: boolean;
-  textColor?: typeof light.theme | typeof dark.theme | typeof red.theme;
+  textColor?: typeof light.theme | typeof dark.theme | typeof pink.theme;
 }
 
 const AnimatedNeomorph = Animated.createAnimatedComponent(Neomorph);
