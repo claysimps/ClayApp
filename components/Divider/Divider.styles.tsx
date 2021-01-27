@@ -5,24 +5,26 @@ import styled, { css } from "styled-components/native";
 import {
   neuDepth,
   NeuDepthProps,
-  TypographyProps,
   ThemeProps,
   light,
   dark,
   Layout,
 } from "../../constants";
 
-export interface StyledDividerProps
-  extends TypographyProps,
-    NeuDepthProps,
-    ThemeProps {
-  fill?: boolean;
+const screenDivider = Layout.window.width;
+const infoDivider = Layout.content.width;
+
+export interface StyledDividerProps extends NeuDepthProps, ThemeProps {
+  raisedDivider?: boolean;
   half?: boolean;
   textColor?: keyof typeof light.theme | keyof typeof dark.theme;
 }
 
-const divColor = css<StyledDividerProps>`
-  background: ${(props) => props.theme.background};
+const raised = css<StyledDividerProps>`
+  shadow-radius: ${(props) => neuDepth[props.depth || "tall"]};
+  height: 15px;
+  shadow-offset: 0px 0px;
+  width: ${infoDivider}px;
 `;
 
 export const StyledDividerContainer = styled.View`
@@ -32,12 +34,23 @@ export const StyledDividerContainer = styled.View`
 const AnimatedNeomorph = Animated.createAnimatedComponent(Neomorph);
 
 export const StyledNeuDivider = styled(AnimatedNeomorph)<StyledDividerProps>`
-  width: ${Layout.tabBar.width}px;
+  width: ${screenDivider}px;
   height: 5px;
   justify-content: center;
   align-items: center;
   background: ${(props) => props.theme.background};
   shadow-radius: ${(props) => neuDepth[props.depth || "shallow"]};
-  shadow-offset: -2px -2px;
-  ${(props) => props.fill && divColor};
+  shadow-offset: -6px -6px;
+  ${(props) => props.raisedDivider && raised};
 `;
+
+// export const StyledNeuDivider = styled(AnimatedNeomorph)<StyledDividerProps>`
+//   width: ${Layout.tabBar.width}px;
+//   justify-content: center;
+//   align-items: center;
+//   background: ${(props) => props.theme.background};
+//   shadow-radius: ${(props) => neuDepth[props.depth || "tall"]};
+//   height: 10px;
+//   /* shadow-offset: -2px -2px; */
+//   ${(props) => props.raisedDivider && raised};
+// `;

@@ -1,12 +1,9 @@
 import React from "react";
 import { Card, StyledBaseText } from "components";
-import {
-  StyledPortfolioListContainer,
-  StyledCardBodyText,
-} from "./PortfolioBodyContainer.styles";
-import { PortfolioCardProps } from "./PortfolioBodyContainer.types";
+import { StyledPortfolioListContainer } from "./PortfolioContainer.styles";
+import { PortfolioCardProps } from "./PortfolioContainer.types";
 
-export const PortfolioBodyContainer = ({
+export const PortfolioContainer = ({
   headerTitle,
   headerBody,
   headerFooter,
@@ -16,13 +13,22 @@ export const PortfolioBodyContainer = ({
     <StyledPortfolioListContainer>
       <Card>
         <Card.Header>
-          <StyledBaseText fontSize={24} fontWeight="bold">
+          <StyledBaseText
+            fontColour="textOnColourBg"
+            fontSize={24}
+            fontWeight="bold">
             {headerTitle}
           </StyledBaseText>
-          <StyledBaseText fontSize={16} fontWeight="regular">
+          <StyledBaseText
+            fontColour="textOnColourBg"
+            fontSize={16}
+            fontWeight="regular">
             {headerBody}
           </StyledBaseText>
-          <StyledBaseText fontSize={18} fontWeight="semiBold">
+          <StyledBaseText
+            fontColour="textOnColourBg"
+            fontSize={18}
+            fontWeight="semiBold">
             {headerFooter}
           </StyledBaseText>
         </Card.Header>

@@ -7,4 +7,5 @@ export enum SCREENS {
   BackendPortfolio = "BackendPortfolio",
   InterestsStack = "InterestsStack",
   SettingsStack = "SettingsStack",
+  BooksScreen = "BooksScreen",
 }

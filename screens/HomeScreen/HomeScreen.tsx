@@ -1,6 +1,6 @@
 import React from "react";
 import { ScreenLayout, Divider } from "components";
-import { PortfolioBodyContainer } from "containers";
+import { PortfolioContainer } from "containers";
 
 const infoText = ` Thanks for checking out ClayApp, THE app for all things Clayton! Have
 a look around, I’m sure you’ll agree, that Clayton is an amazing dude;
@@ -12,7 +12,7 @@ export const HomeScreen = () => {
       <ScreenLayout.Info infoText={infoText} />
       <ScreenLayout.Body>
         <Divider />
-        <PortfolioBodyContainer />
+        <PortfolioContainer />
       </ScreenLayout.Body>
     </ScreenLayout>
   );

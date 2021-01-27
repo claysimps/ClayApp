@@ -7,13 +7,14 @@ import {
 } from "./Divider.styles";
 import { DividerProps } from "./Divider.types";
 
-export const Divider: React.FC<DividerProps> = ({ depth, fill = false }) => {
+export const Divider: React.FC<DividerProps> = ({
+  depth,
+  raisedDivider = false,
+}) => {
   return (
     <StyledDividerContainer>
-      <StyledNeuDivider fill={fill} depth={depth}>
-        <StyledNeuDivider fill={fill} depth={depth}>
-          {/* <StyledDividerSpace /> */}
-        </StyledNeuDivider>
+      <StyledNeuDivider raisedDivider={raisedDivider} depth={depth}>
+        <StyledNeuDivider raisedDivider={raisedDivider} depth={depth} />
       </StyledNeuDivider>
     </StyledDividerContainer>
   );
