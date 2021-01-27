@@ -9,8 +9,9 @@ export const StyledInterestsListContainer = styled.View`
 
 export const StyledInterestsWrapper = styled.View`
   width: ${Layout.cardSize.width}px;
+  padding: 5px 15px;
 `;
 
 export const StyledInterestsText = styled(StyledBaseText)`
-  padding: 5px;
+  padding-bottom: 8px;
 `;
