@@ -8,7 +8,7 @@ export const StyledInterestsListContainer = styled.View`
 `;
 
 export const StyledInterestsWrapper = styled.View`
-  width: ${Layout.cardSize.width};
+  width: ${Layout.cardSize.width}px;
 `;
 
 export const StyledInterestsText = styled(StyledBaseText)`

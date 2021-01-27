@@ -1,4 +1,4 @@
 export { dark } from "./dark";
 export { light } from "./light";
-export { red } from "./red";
+export { pink } from "./pink";
 export type { ThemeProps } from "./themes.types";

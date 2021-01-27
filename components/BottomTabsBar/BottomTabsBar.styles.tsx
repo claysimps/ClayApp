@@ -9,7 +9,7 @@ import {
   NeuDepthProps,
   light,
   dark,
-  red,
+  pink,
 } from "../../constants";
 import { StyledBaseText } from "../Text";
 import { Icon } from "../Icon";
@@ -17,7 +17,7 @@ import { Icon } from "../Icon";
 export interface StyledBottomTabProps extends NeuDepthProps, ThemeProps {
   isActive?: boolean;
   bulb?: boolean;
-  iconColor?: typeof light.theme | typeof dark.theme | typeof red.theme;
+  iconColor?: typeof light.theme | typeof dark.theme | typeof pink.theme;
 }
 
 const AnimatedNeomorph = Animated.createAnimatedComponent(Neomorph);
@@ -26,7 +26,7 @@ const textColor = css<StyledBottomTabProps>`
   color: ${(props) => props.theme.text};
 `;
 const buttonShape = css<StyledBottomTabProps>`
-  shadow-offset: 0px 0px;
+  shadow-offset: -6px -6px;
 `;
 
 export const StyledTabBarShadow = styled(
@@ -57,7 +57,7 @@ export const StyledNeuShadow = styled(AnimatedNeomorph)<StyledBottomTabProps>`
   border-radius: 28px;
   background: ${(props) => props.theme.background};
   shadow-radius: ${(props) => neuDepth[props.depth || "normal"]};
-  shadow-offset: -6px -6px;
+  shadow-offset: 0px 0px;
   ${(props) => props.bulb && buttonShape}
 `;
 

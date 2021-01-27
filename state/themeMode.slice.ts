@@ -4,7 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export enum ThemeModeEnum {
   LIGHT = "light",
   DARK = "dark",
-  RED = "red",
+  PINK = "pink",
 }
 
 export const defaultMode = Appearance.getColorScheme() || ThemeModeEnum.LIGHT;

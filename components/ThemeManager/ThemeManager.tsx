@@ -4,13 +4,14 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import { StatusBar } from "react-native";
 import { ThemeProvider } from "styled-components/native";
 import AsyncStorage from "@react-native-community/async-storage";
+import { Appearance, AppearanceProvider } from "react-native-appearance";
 
 import { ThemeModeEnum, setThemeMode } from "state";
 import { getThemeMode } from "selectors";
 import { useAppDispatch } from "hooks";
-import { dark, light, red } from "../../constants";
+import { dark, light, pink } from "../../constants";
 
-const { DARK, LIGHT, RED } = ThemeModeEnum;
+const { DARK, LIGHT, PINK } = ThemeModeEnum;
 
 export const ThemeManager = ({ children }: { children: React.ReactNode }) => {
   const { themeMode } = useSelector(getThemeMode);
@@ -23,39 +24,41 @@ export const ThemeManager = ({ children }: { children: React.ReactNode }) => {
     if (themeMode === LIGHT) {
       return light.theme;
     }
-    if (themeMode === RED) {
-      return red.theme;
+    if (themeMode === PINK) {
+      return pink.theme;
     }
   };
 
   useEffect(() => {
     const getThemeAsync = async () => {
       const themeResult = await AsyncStorage.getItem("THEME");
-      if (themeResult === RED) {
+      if (themeResult === PINK) {
         dispatch(setThemeMode(themeResult));
       }
     };
-    const loadTheme = () => {
+    const subscription = Appearance.addChangeListener(({ colorScheme }) => {
       if (themeMode === LIGHT || DARK) {
-        dispatch(setThemeMode(themeMode as ThemeModeEnum));
+        dispatch(setThemeMode(colorScheme as ThemeModeEnum));
       } else {
-        dispatch(setThemeMode(RED));
+        dispatch(setThemeMode(PINK));
       }
-    };
+    });
     getThemeAsync();
-    return () => loadTheme();
+    return () => subscription.remove();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <SafeAreaProvider>
-      <ThemeProvider theme={providedTheme}>
-        <StatusBar
-          barStyle={themeMode === DARK ? "light-content" : "dark-content"}
-        />
+      <AppearanceProvider>
+        <ThemeProvider theme={providedTheme}>
+          <StatusBar
+            barStyle={themeMode === DARK ? "light-content" : "dark-content"}
+          />
 
-        {children}
-      </ThemeProvider>
+          {children}
+        </ThemeProvider>
+      </AppearanceProvider>
     </SafeAreaProvider>
   );
 };
