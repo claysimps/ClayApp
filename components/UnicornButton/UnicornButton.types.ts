@@ -1,8 +1,6 @@
-import {
-  StyledUnicornPillProps,
-  StyledUnicornButtonProps,
-} from "./UnicornButton.styles";
+import { StyledUnicornButtonProps } from "./UnicornButton.styles";
+import { ThemeModeEnum } from "state";
 
 export interface UnicornButtonProps extends StyledUnicornButtonProps {
-  onPress: () => void;
+  onPress: (value: ThemeModeEnum) => Promise<void>;
 }
