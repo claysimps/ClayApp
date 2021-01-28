@@ -4,7 +4,7 @@ import { font } from "../../constants";
 
 export const StyledBaseText = styled.Text<StyledBaseTextProps>`
   font-family: ${font.fontFamily.primary};
-  font-size: 16px;
+  font-size: ${(props) => props.size || 16}px;
   font-weight: ${(props) => font.fontWeight[props.fontWeight || "regular"]};
   color: ${(props) => props.theme[props.fontColour || "text"]};
 `;

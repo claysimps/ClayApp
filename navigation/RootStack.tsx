@@ -23,7 +23,7 @@ const MainStack = createStackNavigator<RootStackParamList>();
 
 export const RootStack = () => {
   return (
-    <MainStack.Navigator>
+    <MainStack.Navigator mode="modal">
       <MainStack.Screen
         name={SCREENS.Main}
         options={{

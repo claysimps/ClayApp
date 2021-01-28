@@ -7,4 +7,5 @@ export interface StyledBaseTextProps extends ThemeProps, TypographyProps {
     | keyof typeof dark.theme
     | keyof typeof pink.theme;
   fontWeight?: FontProps["fontWeight"];
+  size?: string;
 }

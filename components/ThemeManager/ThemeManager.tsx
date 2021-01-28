@@ -45,8 +45,7 @@ export const ThemeManager = ({ children }: { children: React.ReactNode }) => {
     });
     getThemeAsync();
     return () => subscription.remove();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [dispatch, themeMode]);
 
   return (
     <SafeAreaProvider>
@@ -55,7 +54,6 @@ export const ThemeManager = ({ children }: { children: React.ReactNode }) => {
           <StatusBar
             barStyle={themeMode === DARK ? "light-content" : "dark-content"}
           />
-
           {children}
         </ThemeProvider>
       </AppearanceProvider>

@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React from "react";
 import { Switch } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import {
@@ -6,17 +6,19 @@ import {
   StyledToggleText,
   StyledSwitchWrapper,
 } from "./ThemeModeSwitch.styles";
-import { ThemeModeEnum, setThemeMode } from "../../state/themeMode.slice";
-import { getThemeMode } from "../../selectors/getThemeMode";
-import { useSelector } from "react-redux";
+import { ThemeModeEnum, setThemeMode } from "state";
 import { useAppDispatch } from "hooks";
+import { StyledBaseText } from "..";
 
-export interface CalculatorProps {}
+export interface ThemeModeProps {}
 
-const { LIGHT, DARK } = ThemeModeEnum;
+const { LIGHT, DARK, PINK } = ThemeModeEnum;
 
-export const ThemeModeSwitch: FC<CalculatorProps> = () => {
-  const { themeMode } = useSelector(getThemeMode);
+export const ThemeModeSwitch = ({
+  themeState,
+}: {
+  themeState: ThemeModeEnum;
+}) => {
   const dispatch = useAppDispatch();
 
   // const handlePickerOnChange = async (value: ThemeModeEnum) => {
@@ -28,34 +30,27 @@ export const ThemeModeSwitch: FC<CalculatorProps> = () => {
     await AsyncStorage.setItem("THEME", value);
   };
 
-  // const ThemeButtons = () => (
-  //   <StyledPickerWrapper>
-  //     <Picker
-  //       style={{ height: 50, width: 150 }}
-  //       selectedValue={themeMode}
-  //       onValueChange={handlePickerOnChange}>
-  //       <Picker.Item label="Light Mode" value={LIGHT} />
-  //       <Picker.Item label="Dark Mode" value={DARK} />
-  //       <Picker.Item label="Pink Mode" value={PINK} />
-  //     </Picker>
-  //   </StyledPickerWrapper>
-  // );
+  const ThemeSwitchPlaceholder = () => (
+    <StyledSwitchWrapper>
+      <StyledToggleText>Unicorn mode</StyledToggleText>
+      <StyledBaseText size="50">🦄</StyledBaseText>
+    </StyledSwitchWrapper>
+  );
   const ThemeSwitch = () => (
     <StyledSwitchWrapper>
       <StyledToggleText>Dark mode</StyledToggleText>
       <Switch
-        value={themeMode === DARK}
+        value={themeState === DARK}
         onValueChange={(value) => {
           dispatch(setThemeMode(value ? DARK : LIGHT));
-          handleSwitchOnChange(themeMode);
+          handleSwitchOnChange(themeState);
         }}
       />
     </StyledSwitchWrapper>
   );
   return (
     <StyledThemeContainer>
-      <ThemeSwitch />
-      {/* {themeMode === PINK ? <ThemePicker /> : <ThemeSwitch />} */}
+      {themeState === PINK ? <ThemeSwitchPlaceholder /> : <ThemeSwitch />}
     </StyledThemeContainer>
   );
 };
