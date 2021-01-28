@@ -2,10 +2,9 @@ import { Pressable, Animated } from "react-native";
 import styled, { css } from "styled-components/native";
 import { Neomorph } from "react-native-neomorph-shadows";
 import { neuDepth, NeuDepthProps, ThemeProps, Layout } from "../../constants";
-import { StyledBaseText } from "..";
 
 export interface StyledUnicornButtonProps extends NeuDepthProps, ThemeProps {
-  press?: boolean;
+  pressed?: boolean;
 }
 
 const AnimatedNeomorph = Animated.createAnimatedComponent(Neomorph);
@@ -36,15 +35,11 @@ export const StyledNeuButtonShadow = styled(
   margin: 20px;
   background: ${(props) => props.theme.background};
   shadow-radius: ${(props) => neuDepth[props.depth || "giant"]};
-  ${(props) => props.press && pressState}
+  ${(props) => props.pressed && pressState}
 `;
 
 export const StyledTextWrapper = styled.View`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-`;
-
-export const StyledUnicorn = styled(StyledBaseText)<StyledUnicornButtonProps>`
-  font-size: 200px;
 `;
