@@ -1,6 +1,9 @@
+import { PressableProps } from "react-native";
 import { StyledUnicornButtonProps } from "./UnicornButton.styles";
-import { ThemeModeEnum } from "state";
+import { ReactNode } from "react";
 
-export interface UnicornButtonProps extends StyledUnicornButtonProps {
-  onPress: (value: ThemeModeEnum) => Promise<void>;
+export interface UnicornButtonProps
+  extends StyledUnicornButtonProps,
+    PressableProps {
+  children: ReactNode;
 }

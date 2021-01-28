@@ -3,11 +3,10 @@ import {
   StyledNeuButtonShadow,
   StyledPressable,
   StyledTextWrapper,
-  StyledUnicorn,
 } from "./UnicornButton.styles";
 import { UnicornButtonProps } from "./UnicornButton.types";
 
-export const UnicornButton = ({ onPress }: UnicornButtonProps) => {
+export const UnicornButton = ({ onPress, children }: UnicornButtonProps) => {
   const [isActive, setIsActive] = useState(false);
 
   const handlePressIn = useCallback(() => {
@@ -22,10 +21,8 @@ export const UnicornButton = ({ onPress }: UnicornButtonProps) => {
       onPressOut={handlePressOut}
       onPress={onPress}>
       <StyledNeuButtonShadow>
-        <StyledNeuButtonShadow press={isActive}>
-          <StyledTextWrapper>
-            <StyledUnicorn>🦄</StyledUnicorn>
-          </StyledTextWrapper>
+        <StyledNeuButtonShadow pressed={isActive}>
+          <StyledTextWrapper>{children}</StyledTextWrapper>
         </StyledNeuButtonShadow>
       </StyledNeuButtonShadow>
     </StyledPressable>
