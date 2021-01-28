@@ -21,11 +21,6 @@ export const ThemeModeSwitch = ({
 }) => {
   const dispatch = useAppDispatch();
 
-  // const handlePickerOnChange = async (value: ThemeModeEnum) => {
-  //   await AsyncStorage.setItem("THEME", value);
-  //   dispatch(setThemeMode(value));
-  // };
-
   const handleSwitchOnChange = async (value: ThemeModeEnum) => {
     await AsyncStorage.setItem("THEME", value);
   };
