@@ -1,20 +1,11 @@
 import styled from "styled-components/native";
 
 import { Layout } from "../../constants";
-import { StyledBaseText } from "..";
+import { StyledBaseText } from "../Text";
 
 export const StyledThemeContainer = styled.View`
   align-items: center;
-
-  /* width: ${Layout.content.width}px; */
-  /* justify-content: center; */
 `;
-// export const StyledPickerWrapper = styled.View`
-//   align-items: center;
-//   width: ${neuDimensions.outputDisplay.width}px;
-//   justify-content: flex-end;
-//   margin-bottom: 30px;
-// `;
 
 export const StyledSwitchWrapper = styled.View`
   flex-direction: row;
@@ -29,9 +20,3 @@ export const StyledToggleText = styled(StyledBaseText)`
   font-size: 20px;
   padding: 20px 0;
 `;
-
-// export const StyledSwitchText = styled(StyledBaseText)`
-//   color: ${(props) => props.theme.fontColor.primary};
-//   font-size: 20px;
-//   padding: 20px 0;
-// `;

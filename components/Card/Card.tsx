@@ -5,17 +5,15 @@ import { CardBody, CardBodyButton } from "./CardBody";
 import { CardProps } from "./Card.types";
 
 export const Card = ({ children }: CardProps) => (
-  <>
-    <StyledCardSpacer>
-      <StyledCardContainer>
-        <StyledCardContainer
-        // inner
-        >
-          {children}
-        </StyledCardContainer>
+  <StyledCardSpacer>
+    <StyledCardContainer>
+      <StyledCardContainer
+      // inner
+      >
+        {children}
       </StyledCardContainer>
-    </StyledCardSpacer>
-  </>
+    </StyledCardContainer>
+  </StyledCardSpacer>
 );
 
 export const CardCanvas = ({ children }: CardProps) => (

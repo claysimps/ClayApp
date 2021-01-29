@@ -1,7 +1,6 @@
 import { Animated, Pressable } from "react-native";
 import { Neomorph } from "react-native-neomorph-shadows";
 import styled, { css } from "styled-components/native";
-import { SafeAreaView } from "react-native-safe-area-context";
 
 import {
   FontProps,

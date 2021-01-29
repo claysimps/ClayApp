@@ -2,28 +2,19 @@ import styled, { css } from "styled-components/native";
 import { Pressable, Animated } from "react-native";
 import { Neomorph } from "react-native-neomorph-shadows";
 
-import {
-  Layout,
-  ThemeProps,
-  neuDepth,
-  NeuDepthProps,
-  light,
-  dark,
-  pink,
-} from "../../constants";
+import { Layout, ThemeProps, neuDepth, NeuDepthProps } from "../../constants";
 import { StyledBaseText } from "../Text";
-import { Icon } from "../Icon";
 
 export interface StyledBottomTabProps extends NeuDepthProps, ThemeProps {
   isActive?: boolean;
   bulb?: boolean;
-  iconColor?: typeof light.theme | typeof dark.theme | typeof pink.theme;
 }
 
 const AnimatedNeomorph = Animated.createAnimatedComponent(Neomorph);
 
 const textColor = css<StyledBottomTabProps>`
-  color: ${(props) => props.theme.text};
+  color: ${(props) => props.theme.tabIconSelected};
+  font-size: 8px;
 `;
 const buttonShape = css<StyledBottomTabProps>`
   shadow-offset: -6px -6px;
@@ -68,13 +59,10 @@ export const StyledDetailWrapper = styled.View`
   align-items: center;
 `;
 
-export const StyledTabIcon = styled(Icon)<StyledBottomTabProps>`
-  color: ${(props) => props.theme[props.iconColor || "primary"]};
-`;
-
 export const StyledButtonText = styled(StyledBaseText)<StyledBottomTabProps>`
-  font-size: 8px;
+  font-size: 12px;
+  font-weight: bold;
   opacity: 1;
-  color: ${(props) => props.theme.primary};
+  color: ${(props) => props.theme.tabIconDefault};
   ${(props) => props.isActive && textColor}
 `;

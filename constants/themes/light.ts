@@ -6,10 +6,11 @@ export const light = {
     secondaryText: "#B0B1BFFF",
     ctaText: mainColourLight,
     textOnColourBg: "rgba(255, 255, 255, 0.8)",
-    background: "#ECF0F3",
+    background: "rgba(236, 240, 243, 1)",
     primary: mainColourLight,
     tint: "rgba(254, 91, 172, 0.1)",
-    tabIconDefault: "rgba(255, 255, 255, 0.8)",
+    tabIconDefault: "rgba(102, 102, 102, 0.8)",
     tabIconSelected: mainColourLight,
+    modalBackground: "rgba(236, 240, 243, 0.8)",
   },
 } as const;
