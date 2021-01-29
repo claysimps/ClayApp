@@ -1,10 +1,10 @@
 import React from "react";
-import { StyledVectorIcon } from "./Icon.styles";
+import { StyledVectorIcon, StyledIconProps } from "./Icon.styles";
+import { ThemeProps } from "../../constants";
 
-export interface IconProps {
+export interface IconProps extends ThemeProps, StyledIconProps {
   size: keyof typeof IconSizes;
   name: string;
-  iconColor?: string;
 }
 
 export const IconSizes = {
@@ -14,6 +14,10 @@ export const IconSizes = {
   extraLarge: 27,
 };
 
-export const Icon = ({ size, name, iconColor = "blue" }: IconProps) => (
-  <StyledVectorIcon name={name} size={IconSizes[size]} color={iconColor} />
+export const Icon = ({ size, name, iconColour }: IconProps) => (
+  <StyledVectorIcon
+    name={name}
+    size={IconSizes[size]}
+    iconColour={iconColour}
+  />
 );

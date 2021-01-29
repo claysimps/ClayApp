@@ -8,7 +8,7 @@ import {
 } from "./ThemeModeSwitch.styles";
 import { ThemeModeEnum, setThemeMode } from "state";
 import { useAppDispatch } from "hooks";
-import { StyledBaseText } from "..";
+import { StyledBaseText } from "../Text";
 
 export interface ThemeModeProps {}
 
