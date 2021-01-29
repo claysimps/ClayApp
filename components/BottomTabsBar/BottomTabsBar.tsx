@@ -1,11 +1,11 @@
 import React, { FC } from "react";
+import { Icon } from "../Icon";
 import {
   StyledTabBarShadow,
   StyledDetailWrapper,
   StyledButtonText,
   StyledNeuShadow,
   StyledPressable,
-  StyledTabIcon,
 } from "./BottomTabsBar.styles";
 import { BottomTabsBarProps } from "./BottomTabsBar.types";
 import { iconDetails } from "./iconDetails";
@@ -29,28 +29,25 @@ export const BottomTabsBar: FC<BottomTabsBarProps> = ({
           const { iconName } = iconDetails[index];
           const label =
             options.title !== undefined ? options.title : route.name;
-
           const isFocused = state.index === index;
-
           const onPress = () => {
             const event = navigation.emit({
               type: "tabPress",
               target: route.key,
               canPreventDefault: true,
             });
-
             if (!isFocused && !event.defaultPrevented) {
               navigation.navigate(route.name);
             }
           };
-
           const onLongPress = () => {
             navigation.emit({
               type: "tabLongPress",
               target: route.key,
             });
           };
-
+          const iconColour = isFocused ? "tabIconSelected" : "tabIconDefault";
+          const iconSize = isFocused ? "extraLarge" : "medium";
           return (
             <StyledPressable
               key={index}
@@ -58,7 +55,12 @@ export const BottomTabsBar: FC<BottomTabsBarProps> = ({
               onLongPress={onLongPress}>
               <StyledNeuShadow bulb={isFocused}>
                 <StyledDetailWrapper>
-                  <StyledTabIcon key={index} name={iconName} size="large" />
+                  <Icon
+                    iconColour={iconColour}
+                    key={index}
+                    name={iconName}
+                    size={iconSize}
+                  />
                   <StyledButtonText isActive={isFocused}>
                     {label}
                   </StyledButtonText>

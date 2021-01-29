@@ -9,4 +9,5 @@ export enum SCREENS {
   SettingsStack = "SettingsStack",
   BooksScreen = "BooksScreen",
   SettingsScreen = "SettingsScreen",
+  BookSuggestionModal = "BookSuggestionModal",
 }
