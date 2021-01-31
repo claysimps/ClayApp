@@ -7,6 +7,7 @@ export const backendScreenData = [
     headerTitle: "Backend for ClayApp",
     headerBody: "TypeScript",
     headerFooter: "Type-GraphQl",
-    cardBodyText: "Backend for ClayApp with MongoDB and GraphQl.",
+    cardBodyText:
+      "Backend for ClayApp with MongoDB and GraphQl. Type-Graphql is great for a simple projects!",
   },
 ];

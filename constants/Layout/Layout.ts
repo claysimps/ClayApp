@@ -24,6 +24,11 @@ export const Layout = {
     half: width * 0.28,
     height: height * 0.04,
   },
+  input: {
+    width: width * 0.75,
+    height: height * 0.04,
+    multiline: height * 0.2,
+  },
   cardSize: {
     width: width * 0.75,
     height: height * 0.3,

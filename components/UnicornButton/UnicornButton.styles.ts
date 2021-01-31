@@ -8,9 +8,9 @@ export interface StyledUnicornButtonProps extends NeuDepthProps, ThemeProps {
 }
 
 const AnimatedNeomorph = Animated.createAnimatedComponent(Neomorph);
-const buttonSize = Layout.content.width;
-const pressedButtonSize = Layout.content.width * 0.95;
-const buttonBorderRadius = Layout.content.width / 2;
+const buttonSize = Math.round(Layout.content.width);
+const pressedButtonSize = Math.round(Layout.content.width) * 0.95;
+const buttonBorderRadius = Math.round(Layout.content.width) / 2;
 
 export const pressState = css`
   width: ${pressedButtonSize}px;

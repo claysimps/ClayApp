@@ -1,6 +1,10 @@
 import React from "react";
 import { useAppDispatch } from "hooks";
-import { StyledTextInput, StyledInputWrapper } from "./TextInput.styles";
+import {
+  StyledTextInput,
+  StyledInputWrapper,
+  StyledScrollView,
+} from "./TextInput.styles";
 import { setInputValues } from "../../state";
 import { InputProps } from "./TextInput.types";
 
@@ -10,10 +14,11 @@ export const TextInput = ({
   placeholder,
   autoFocus,
   textColor,
+  multi,
 }: InputProps) => {
   const dispatch = useAppDispatch();
 
-  const onChangeText = (value: string) => {
+  const onChangeText = () => {
     dispatch(
       setInputValues({
         value,
@@ -22,15 +27,34 @@ export const TextInput = ({
     );
   };
   return (
-    <StyledInputWrapper>
-      <StyledTextInput
-        value={value}
-        fieldName={fieldName}
-        placeholder={placeholder}
-        autoFocus={autoFocus}
-        textColor={textColor}
-        onChangeText={onChangeText}
-      />
+    <StyledInputWrapper multi={multi}>
+      {(multi && (
+        <StyledScrollView>
+          <StyledTextInput
+            multiline
+            editable
+            maxLength={500}
+            value={value}
+            fieldName={fieldName}
+            placeholder={placeholder}
+            autoFocus={autoFocus}
+            textColor={textColor}
+            onChangeText={onChangeText}
+          />
+        </StyledScrollView>
+      )) || (
+        <StyledTextInput
+          multiline
+          editable
+          maxLength={500}
+          value={value}
+          fieldName={fieldName}
+          placeholder={placeholder}
+          autoFocus={autoFocus}
+          textColor={textColor}
+          onChangeText={onChangeText}
+        />
+      )}
     </StyledInputWrapper>
   );
 };

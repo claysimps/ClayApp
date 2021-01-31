@@ -11,4 +11,5 @@ export interface InputProps
   fieldName: string;
   placeholder: string;
   autoFocus?: boolean;
+  multi?: boolean;
 }
