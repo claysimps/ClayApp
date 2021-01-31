@@ -14,7 +14,7 @@ export const reactScreenData: Array<ReactScreenDataProps> = [
     headerBody: "TypeScript",
     headerFooter: "Next js",
     cardBodyText:
-      "A website for a startup that I’m co-founding. App Beta launch scheduled for February 2021.",
+      "A website for a startup that I’m co-founding. App Beta launch scheduled for March 2021.",
   },
   {
     id: "filldWebsite",

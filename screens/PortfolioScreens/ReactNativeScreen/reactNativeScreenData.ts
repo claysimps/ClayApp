@@ -9,7 +9,7 @@ export const screenInfo =
 
 export const reactNativeScreenData: Array<ReactNativeScreenDataProps> = [
   {
-    id: "calculator",
+    id: "coolCalculator",
     headerTitle: "Cool Calculator",
     headerBody: "TypeScript",
     headerFooter: "Bare bones React Native app",
