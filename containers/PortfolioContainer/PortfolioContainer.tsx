@@ -1,6 +1,9 @@
 import React from "react";
-import { Card, StyledBaseText } from "components";
-import { StyledPortfolioListContainer } from "./PortfolioContainer.styles";
+import { Card, StyledBaseText, Button } from "components";
+import {
+  StyledPortfolioListContainer,
+  StyledButtonWrapper,
+} from "./PortfolioContainer.styles";
 import { PortfolioCardProps } from "./PortfolioContainer.types";
 
 export const PortfolioContainer = ({
@@ -8,6 +11,8 @@ export const PortfolioContainer = ({
   headerBody,
   headerFooter,
   cardBodyText,
+  buttonOptionOne,
+  buttonOptionTwo,
 }: PortfolioCardProps) => {
   return (
     <StyledPortfolioListContainer>
@@ -36,6 +41,10 @@ export const PortfolioContainer = ({
           <StyledBaseText fontSize={16} fontWeight="regular">
             {cardBodyText}
           </StyledBaseText>
+          <StyledButtonWrapper>
+            <Button title={buttonOptionOne} />
+            {buttonOptionTwo && <Button title={buttonOptionTwo} />}
+          </StyledButtonWrapper>
         </Card.Body>
       </Card>
     </StyledPortfolioListContainer>

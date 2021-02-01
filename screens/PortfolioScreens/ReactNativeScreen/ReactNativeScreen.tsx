@@ -1,18 +1,44 @@
 import React from "react";
 import { FlatList } from "react-native";
-import { ScreenLayout, Divider } from "components";
-import { PortfolioContainer, PortfolioCardProps } from "containers";
-import { reactNativeScreenData, screenInfo } from "./reactNativeScreenData";
+import {
+  ScreenLayout,
+  Divider,
+  StyledBaseText,
+  LoadingSpinner,
+} from "components";
+import { PortfolioContainer } from "containers";
+import {
+  screenInfo,
+  ReactNativeScreenDataProps,
+  reactNativeProjects,
+} from "./reactNativeScreenData";
+import { useQuery } from "urql";
 
-type ItemProps = { item: PortfolioCardProps };
+type ItemProps = { item: ReactNativeScreenDataProps };
 
 export const ReactNativeScreen = () => {
+  const [{ data, fetching, error }] = useQuery({
+    query: reactNativeProjects,
+  });
+  if (fetching) {
+    return <LoadingSpinner isFetching={fetching} />;
+  }
+  if (error) {
+    return (
+      <StyledBaseText>
+        Huh, something went wrong... {error.message}
+      </StyledBaseText>
+    );
+  }
+  console.log("💃🏿", data);
   const portfolioCard = ({ item }: ItemProps) => (
     <PortfolioContainer
       headerTitle={item.headerTitle}
       headerBody={item.headerBody}
       headerFooter={item.headerFooter}
       cardBodyText={item.cardBodyText}
+      buttonOptionOne={item.buttonOptionOne}
+      buttonOptionTwo={item.buttonOptionTwo}
     />
   );
   return (
@@ -21,7 +47,7 @@ export const ReactNativeScreen = () => {
       <ScreenLayout.Body>
         <Divider />
         <FlatList
-          data={reactNativeScreenData}
+          data={data.getAllProjectsByType}
           renderItem={portfolioCard}
           keyExtractor={(item) => item.id}
         />

@@ -12,3 +12,4 @@ export * from "./ThemeManager";
 export * from "./TopTabsBar";
 export * from "./UnicornButton";
 export * from "./ThemeModeSwitch";
+export * from "./LoadingSpinner";

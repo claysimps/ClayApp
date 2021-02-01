@@ -3,4 +3,6 @@ export type PortfolioCardProps = {
   headerBody: string;
   headerFooter: string;
   cardBodyText: string;
+  buttonOptionOne: string;
+  buttonOptionTwo?: string;
 };

@@ -44,7 +44,7 @@ export const StyledCardHeader = styled.View<StyledCardProps>`
 
 export const StyledCardBodyWrapper = styled.View<StyledCardProps>`
   height: 180px;
-  flex-direction: row;
+  /* flex-direction: column; */
   flex: 1;
   padding: 15px;
 `;
@@ -55,13 +55,9 @@ export const StyledCardBodyButtonWrapper = styled.View<StyledCardProps>`
   flex-direction: row;
   flex: 1;
 `;
-export const StyledCardBodyContainer = styled.View<StyledCardProps>`
-  align-items: center;
-  align-content: space-between;
-`;
 
-export const StyledCardBodyButtonContainer = styled.View<StyledCardProps>`
-  align-items: center;
+export const StyledCardBodyContainer = styled.View<StyledCardProps>`
+  /* align-items: center; */
   flex-direction: row;
 `;
 
@@ -69,12 +65,4 @@ export const StyledHeaderText = styled(StyledBaseText)`
   font-weight: 900;
   font-size: 14px;
   color: white;
-`;
-
-export const StyledBodyText = styled.Text<StyledCardProps>`
-  padding: 20px 15px 0px;
-  align-content: space-between;
-  font-family: ${font.fontFamily.primary};
-  font-weight: ${font.fontWeight.regular};
-  color: ${(props) => props.theme.text};
 `;
