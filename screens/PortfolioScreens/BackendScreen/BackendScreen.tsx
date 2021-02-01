@@ -1,18 +1,43 @@
 import React from "react";
 import { FlatList } from "react-native";
-import { ScreenLayout, Divider } from "components";
-import { PortfolioContainer, PortfolioCardProps } from "containers";
-import { backendScreenData, screenInfo } from "./backendScreenData";
+import {
+  ScreenLayout,
+  Divider,
+  LoadingSpinner,
+  StyledBaseText,
+} from "components";
+import { PortfolioContainer } from "containers";
+import {
+  screenInfo,
+  backendProjects,
+  BackendScreenDataProps,
+} from "./backendScreenData";
+import { useQuery } from "urql";
 
-type ItemProps = { item: PortfolioCardProps };
+type ItemProps = { item: BackendScreenDataProps };
 
 export const BackendScreen = () => {
+  const [{ data, fetching, error }] = useQuery({
+    query: backendProjects,
+  });
+  if (fetching) {
+    return <LoadingSpinner isFetching={fetching} />;
+  }
+  if (error) {
+    return (
+      <StyledBaseText>
+        Huh, something went wrong... {error.message}
+      </StyledBaseText>
+    );
+  }
   const portfolioCard = ({ item }: ItemProps) => (
     <PortfolioContainer
       headerTitle={item.headerTitle}
       headerBody={item.headerBody}
       headerFooter={item.headerFooter}
       cardBodyText={item.cardBodyText}
+      buttonOptionOne={item.buttonOptionOne}
+      buttonOptionTwo={item.buttonOptionTwo}
     />
   );
   return (
@@ -21,7 +46,7 @@ export const BackendScreen = () => {
       <ScreenLayout.Body>
         <Divider />
         <FlatList
-          data={backendScreenData}
+          data={data.getAllProjectsByType}
           renderItem={portfolioCard}
           keyExtractor={(item) => item.id}
         />

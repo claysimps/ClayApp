@@ -23,11 +23,15 @@
     "@types/react-native-vector-icons": "^6.4.6",
     "@typescript-eslint/eslint-plugin": "^4.14.0",
     "@typescript-eslint/parser": "^4.14.0",
+    "@urql/core": "^1.16.2",
+    "@urql/devtools": "^2.0.2",
+    "graphql": "^15.5.0",
     "react": "16.13.1",
     "react-native": "0.63.4",
     "react-native-appearance": "^0.3.4",
     "react-native-gesture-handler": "^1.9.0",
     "react-native-input-scroll-view": "^1.11.0",
+    "react-native-loading-spinner-overlay": "^2.0.0",
     "react-native-neomorph-shadows": "^1.1.2",
     "react-native-read-more-text": "^1.1.2",
     "react-native-reanimated": "^1.13.2",
@@ -37,7 +41,8 @@
     "react-native-vector-icons": "^8.0.0",
     "react-redux": "^7.2.2",
     "styled-components": "^5.2.1",
-    "styled-system": "^5.1.5"
+    "styled-system": "^5.1.5",
+    "urql": "^1.11.6"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
@@ -45,6 +50,7 @@
     "@react-native-community/eslint-config": "^1.1.0",
     "@types/jest": "^25.2.3",
     "@types/react-native": "^0.63.2",
+    "@types/react-native-loading-spinner-overlay": "^0.5.2",
     "@types/react-native-read-more-text": "^1.0.0",
     "@types/react-redux": "^7.1.16",
     "@types/react-test-renderer": "^16.9.2",
@@ -83,7 +89,8 @@
       "^navigation/(.*)": "<rootDir>/navigation/$1",
       "^screens/(.*)": "<rootDir>/screens/$1",
       "^selectors/(.*)": "<rootDir>/selectors/$1",
-      "^state/(.*)": "<rootDir>/state/$1"
+      "^state/(.*)": "<rootDir>/state/$1",
+      "^gqlClient/(.*)": "<rootDir>/gqlClient/$1"
     }
   }
 }
