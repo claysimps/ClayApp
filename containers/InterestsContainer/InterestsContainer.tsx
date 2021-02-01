@@ -10,9 +10,10 @@ import { Divider } from "components";
 
 export const InterestsContainer = ({
   title,
-  creator,
-  type,
-  moreInfo,
+  author,
+  classification,
+  synopsis,
+  bookUrl,
 }: InterestsProps) => {
   return (
     <StyledInterestsListContainer>
@@ -21,16 +22,23 @@ export const InterestsContainer = ({
           {title}
         </StyledInterestsText>
         <StyledInterestsText fontSize={18} fontWeight="regular">
-          {creator}
+          {author}
         </StyledInterestsText>
-        <StyledInterestsText fontSize={18} fontWeight="bold">
-          {type}
-        </StyledInterestsText>
-        {/* <ReactMore numberOfLines={2}> */}
-        <StyledInterestsText fontSize={16} fontWeight="regular">
-          {moreInfo}
-        </StyledInterestsText>
-        {/* </ReactMore> */}
+        {classification && (
+          <StyledInterestsText fontSize={18} fontWeight="bold">
+            {classification}
+          </StyledInterestsText>
+        )}
+        {bookUrl && (
+          <StyledInterestsText fontSize={18} fontWeight="regular">
+            {bookUrl}
+          </StyledInterestsText>
+        )}
+        {synopsis && (
+          <StyledInterestsText fontSize={16} fontWeight="regular">
+            {synopsis}
+          </StyledInterestsText>
+        )}
       </StyledInterestsWrapper>
       <Divider raisedDivider />
     </StyledInterestsListContainer>

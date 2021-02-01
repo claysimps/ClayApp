@@ -1,18 +1,13 @@
 import React from "react";
 import { FlatList } from "react-native";
-import {
-  ScreenLayout,
-  Divider,
-  StyledBaseText,
-  LoadingSpinner,
-} from "components";
+import { useQuery } from "urql";
+import { ScreenLayout, Divider, StyledBaseText } from "components";
 import { PortfolioContainer } from "containers";
 import {
   screenInfo,
   ReactNativeScreenDataProps,
   reactNativeProjects,
 } from "./reactNativeScreenData";
-import { useQuery } from "urql";
 
 type ItemProps = { item: ReactNativeScreenDataProps };
 
@@ -21,7 +16,7 @@ export const ReactNativeScreen = () => {
     query: reactNativeProjects,
   });
   if (fetching) {
-    return <LoadingSpinner isFetching={fetching} />;
+    return null;
   }
   if (error) {
     return (
@@ -30,7 +25,6 @@ export const ReactNativeScreen = () => {
       </StyledBaseText>
     );
   }
-  console.log("💃🏿", data);
   const portfolioCard = ({ item }: ItemProps) => (
     <PortfolioContainer
       headerTitle={item.headerTitle}

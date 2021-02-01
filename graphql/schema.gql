@@ -3,7 +3,29 @@
 # !!!   DO NOT MODIFY THIS FILE BY YOURSELF   !!!
 # -----------------------------------------------
 
+"""Portfolio input"""
+input BookInput {
+  author: String!
+  bookUrl: String
+  classification: String
+  queryType: String!
+  synopsis: String
+  title: String!
+}
+
+"""This is the portfolio payload"""
+type BookPayload {
+  author: String!
+  bookUrl: String
+  classification: String
+  id: ID!
+  queryType: String!
+  synopsis: String
+  title: String!
+}
+
 type Mutation {
+  addBook(data: BookInput!): SuccessPayload!
   addPortfolioProject(data: PortfolioInput!): SuccessPayload!
 }
 
@@ -15,8 +37,8 @@ input PortfolioInput {
   headerBody: String!
   headerFooter: String!
   headerTitle: String!
-  portfolioType: String!
   projectName: String!
+  queryType: String!
 }
 
 """This is the portfolio payload"""
@@ -28,15 +50,16 @@ type PortfolioPayload {
   headerFooter: String!
   headerTitle: String!
   id: ID!
-  portfolioType: String!
   projectName: String!
+  queryType: String!
 }
 
 type Query {
+  getAllBooks(data: String!): [BookPayload!]!
   getAllProjectsByType(data: String!): [PortfolioPayload!]!
 }
 
-"""This is the portfolio payload"""
+"""confirms upload"""
 type SuccessPayload {
   successMessage: String!
 }

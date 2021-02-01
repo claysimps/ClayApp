@@ -1,6 +1,7 @@
 export type InterestsProps = {
   title: string;
-  creator: string;
-  type: string;
-  moreInfo: string;
+  author: string;
+  classification?: string;
+  synopsis?: string;
+  bookUrl?: string;
 };

@@ -1,9 +1,15 @@
 import React from "react";
 import { FlatList } from "react-native";
+import { useQuery } from "urql";
 import { StackNavigationProp } from "@react-navigation/stack";
-import { ScreenLayout, Divider, OpenModalButton } from "components";
-import { InterestsContainer, InterestsProps } from "containers";
-import { booksListData, screenInfo } from "./booksListData";
+import {
+  ScreenLayout,
+  Divider,
+  OpenModalButton,
+  StyledBaseText,
+} from "components";
+import { InterestsContainer } from "containers";
+import { getBooksList, screenInfo, BooksListDataProps } from "./booksListData";
 import { SCREENS } from "../../../constants";
 import { RootStackParamList } from "../../../navigation/RootStack";
 
@@ -12,15 +18,30 @@ type BookNavigationProp = StackNavigationProp<RootStackParamList>;
 export type BookScreenProps = {
   navigation: BookNavigationProp;
 };
-type ItemProps = { item: InterestsProps };
+type ItemProps = { item: BooksListDataProps };
 
 export const BooksScreen = ({ navigation }: BookScreenProps) => {
+  const [{ data, fetching, error }] = useQuery({
+    query: getBooksList,
+  });
+  if (fetching) {
+    return null;
+  }
+  if (error) {
+    return (
+      <StyledBaseText>
+        Huh, something went wrong... {error.message}
+      </StyledBaseText>
+    );
+  }
+  console.log("🤖", data);
   const bookList = ({ item }: ItemProps) => (
     <InterestsContainer
       title={item.title}
-      creator={item.creator}
-      type={item.type}
-      moreInfo={item.moreInfo}
+      author={item.author}
+      classification={item.classification}
+      bookUrl={item.bookUrl}
+      synopsis={item.synopsis}
     />
   );
   return (
@@ -29,7 +50,7 @@ export const BooksScreen = ({ navigation }: BookScreenProps) => {
       <ScreenLayout.Body>
         <Divider />
         <FlatList
-          data={booksListData}
+          data={data.getAllBooks}
           renderItem={bookList}
           keyExtractor={(item) => item.id}
         />
