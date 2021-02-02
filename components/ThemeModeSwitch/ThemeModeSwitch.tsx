@@ -28,7 +28,7 @@ export const ThemeModeSwitch = ({
   const ThemeSwitchPlaceholder = () => (
     <StyledSwitchWrapper>
       <StyledToggleText>Unicorn mode</StyledToggleText>
-      <StyledBaseText size="50">🦄</StyledBaseText>
+      <StyledBaseText size={50}>🦄</StyledBaseText>
     </StyledSwitchWrapper>
   );
   const ThemeSwitch = () => (
