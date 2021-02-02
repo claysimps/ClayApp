@@ -7,30 +7,42 @@ import {
   StyledInterestsText,
 } from "./InterestsContainer.styles";
 import { Divider } from "components";
+import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 
 export const InterestsContainer = ({
   title,
-  creator,
-  type,
-  moreInfo,
+  author,
+  classification,
+  synopsis,
+  bookUrl,
+  onPress,
 }: InterestsProps) => {
   return (
     <StyledInterestsListContainer>
       <StyledInterestsWrapper>
-        <StyledInterestsText fontSize={28} fontWeight="black">
+        <StyledInterestsText size={22} fontWeight="black">
           {title}
         </StyledInterestsText>
-        <StyledInterestsText fontSize={18} fontWeight="regular">
-          {creator}
+        <StyledInterestsText size={18} fontWeight="regular">
+          {author}
         </StyledInterestsText>
-        <StyledInterestsText fontSize={18} fontWeight="bold">
-          {type}
-        </StyledInterestsText>
-        {/* <ReactMore numberOfLines={2}> */}
-        <StyledInterestsText fontSize={16} fontWeight="regular">
-          {moreInfo}
-        </StyledInterestsText>
-        {/* </ReactMore> */}
+        {classification && (
+          <StyledInterestsText size={16} fontWeight="bold">
+            {classification}
+          </StyledInterestsText>
+        )}
+        {bookUrl && (
+          <TouchableWithoutFeedback onPress={onPress}>
+            <StyledInterestsText underline size={16} fontWeight="regular">
+              View Book
+            </StyledInterestsText>
+          </TouchableWithoutFeedback>
+        )}
+        {synopsis && (
+          <StyledInterestsText size={16} fontWeight="regular">
+            {synopsis}
+          </StyledInterestsText>
+        )}
       </StyledInterestsWrapper>
       <Divider raisedDivider />
     </StyledInterestsListContainer>

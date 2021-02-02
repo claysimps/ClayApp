@@ -1,11 +1,6 @@
 import React from "react";
 import { FlatList } from "react-native";
-import {
-  ScreenLayout,
-  Divider,
-  LoadingSpinner,
-  StyledBaseText,
-} from "components";
+import { ScreenLayout, Divider, StyledBaseText } from "components";
 import { PortfolioContainer } from "containers";
 import {
   screenInfo,
@@ -21,7 +16,7 @@ export const BackendScreen = () => {
     query: backendProjects,
   });
   if (fetching) {
-    return <LoadingSpinner isFetching={fetching} />;
+    return null;
   }
   if (error) {
     return (

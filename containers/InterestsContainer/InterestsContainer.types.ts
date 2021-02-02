@@ -1,6 +1,10 @@
-export type InterestsProps = {
+import { StyledInterestsContainerProps } from "./InterestsContainer.styles";
+
+export interface InterestsProps extends StyledInterestsContainerProps {
   title: string;
-  creator: string;
-  type: string;
-  moreInfo: string;
-};
+  author: string;
+  classification?: string;
+  synopsis?: string;
+  bookUrl: string;
+  onPress: () => void;
+}

@@ -1,11 +1,6 @@
 import React from "react";
 import { FlatList } from "react-native";
-import {
-  ScreenLayout,
-  Divider,
-  LoadingSpinner,
-  StyledBaseText,
-} from "components";
+import { ScreenLayout, Divider, StyledBaseText } from "components";
 import { PortfolioContainer } from "containers";
 import {
   reactProjects,
@@ -22,7 +17,7 @@ export const ReactScreen = () => {
     query: reactProjects,
   });
   if (fetching) {
-    return <LoadingSpinner isFetching={fetching} />;
+    return null;
   }
   if (error) {
     return (
