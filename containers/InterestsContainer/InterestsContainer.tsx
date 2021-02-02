@@ -7,6 +7,7 @@ import {
   StyledInterestsText,
 } from "./InterestsContainer.styles";
 import { Divider } from "components";
+import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 
 export const InterestsContainer = ({
   title,
@@ -14,28 +15,31 @@ export const InterestsContainer = ({
   classification,
   synopsis,
   bookUrl,
+  onPress,
 }: InterestsProps) => {
   return (
     <StyledInterestsListContainer>
       <StyledInterestsWrapper>
-        <StyledInterestsText fontSize={28} fontWeight="black">
+        <StyledInterestsText size={22} fontWeight="black">
           {title}
         </StyledInterestsText>
-        <StyledInterestsText fontSize={18} fontWeight="regular">
+        <StyledInterestsText size={18} fontWeight="regular">
           {author}
         </StyledInterestsText>
         {classification && (
-          <StyledInterestsText fontSize={18} fontWeight="bold">
+          <StyledInterestsText size={16} fontWeight="bold">
             {classification}
           </StyledInterestsText>
         )}
         {bookUrl && (
-          <StyledInterestsText fontSize={18} fontWeight="regular">
-            {bookUrl}
-          </StyledInterestsText>
+          <TouchableWithoutFeedback onPress={onPress}>
+            <StyledInterestsText underline size={16} fontWeight="regular">
+              View Book
+            </StyledInterestsText>
+          </TouchableWithoutFeedback>
         )}
         {synopsis && (
-          <StyledInterestsText fontSize={16} fontWeight="regular">
+          <StyledInterestsText size={16} fontWeight="regular">
             {synopsis}
           </StyledInterestsText>
         )}
