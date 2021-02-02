@@ -4,7 +4,6 @@ import styled from "styled-components/native";
 import {
   NeuDepthProps,
   neuDepth,
-  font,
   ThemeProps,
   Layout,
   light,

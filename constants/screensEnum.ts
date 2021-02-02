@@ -10,4 +10,5 @@ export enum SCREENS {
   BooksScreen = "BooksScreen",
   SettingsScreen = "SettingsScreen",
   BookSuggestionModal = "BookSuggestionModal",
+  WebviewModal = "WebviewModal",
 }

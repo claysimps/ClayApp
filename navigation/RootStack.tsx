@@ -2,7 +2,7 @@ import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { SCREENS } from "constants/screensEnum";
-import { HomeScreen, BookSuggestionModal } from "screens";
+import { HomeScreen, BookSuggestionModal, WebviewModal } from "screens";
 import { BottomTabsBar } from "components";
 import { PortfolioStack } from "./PortfolioStack";
 import { InterestsStack } from "./InterestsStack";
@@ -11,6 +11,7 @@ import { SettingsStack } from "./SettingsStack";
 export type RootStackParamList = {
   [SCREENS.Main]: undefined;
   [SCREENS.BookSuggestionModal]: undefined;
+  [SCREENS.WebviewModal]: { bookUrl: string; screenTitle: string };
 };
 export type MainTabsParamList = {
   [SCREENS.HomeScreen]: undefined;
@@ -26,7 +27,6 @@ export const RootStack = () => {
   return (
     <MainStack.Navigator
       screenOptions={{
-        headerShown: false,
         cardStyle: { backgroundColor: "transparent" },
         cardOverlayEnabled: true,
         cardStyleInterpolator: ({ current: { progress } }) => ({
@@ -84,6 +84,14 @@ export const RootStack = () => {
         options={{
           headerShown: false,
         }}
+      />
+      <MainStack.Screen
+        name={SCREENS.WebviewModal}
+        component={WebviewModal}
+        options={({ route }) => ({
+          title: route.params.screenTitle,
+          headerBackTitle: "back",
+        })}
       />
     </MainStack.Navigator>
   );
