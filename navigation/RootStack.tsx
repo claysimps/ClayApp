@@ -1,5 +1,8 @@
 import React from "react";
-import { createStackNavigator } from "@react-navigation/stack";
+import {
+  createStackNavigator,
+  StackNavigationProp,
+} from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { SCREENS } from "constants/screensEnum";
 import { HomeScreen, BookSuggestionModal, WebviewModal } from "screens";
@@ -8,10 +11,17 @@ import { PortfolioStack } from "./PortfolioStack";
 import { InterestsStack } from "./InterestsStack";
 import { SettingsStack } from "./SettingsStack";
 
+export type RootStackNavigationProp = {
+  navigation: StackNavigationProp<RootStackParamList>;
+};
+
 export type RootStackParamList = {
   [SCREENS.Main]: undefined;
   [SCREENS.BookSuggestionModal]: undefined;
-  [SCREENS.WebviewModal]: { bookUrl: string; screenTitle: string };
+  [SCREENS.WebviewModal]: {
+    url: string | undefined;
+    screenTitle: string;
+  };
 };
 export type MainTabsParamList = {
   [SCREENS.HomeScreen]: undefined;
