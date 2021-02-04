@@ -1,1 +1,1 @@
-export * from "./UrqlClient";
+export { UrqlClient } from "./UrqlClient";

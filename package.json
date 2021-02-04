@@ -5,10 +5,11 @@
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "start": "react-native start",
+    "start": "react-native start --reset-cache",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "postinstall": "cd ios && pod install"
+    "postinstall": "cd ios && pod install",
+    "generate": "graphql-codegen --config codegen.yml"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.13.3",
@@ -49,6 +50,10 @@
   "devDependencies": {
     "@babel/core": "^7.8.4",
     "@babel/runtime": "^7.8.4",
+    "@graphql-codegen/cli": "1.20.1",
+    "@graphql-codegen/typescript": "^1.20.2",
+    "@graphql-codegen/typescript-operations": "^1.17.14",
+    "@graphql-codegen/typescript-urql": "^2.0.3",
     "@react-native-community/eslint-config": "^1.1.0",
     "@types/jest": "^25.2.3",
     "@types/react-native": "^0.63.2",
@@ -60,6 +65,8 @@
     "@types/styled-components-react-native": "^5.1.0",
     "@types/styled-system": "^5.1.10",
     "babel-jest": "^25.1.0",
+    "babel-plugin-graphql-tag": "^3.2.0",
+    "babel-plugin-import-graphql": "^2.8.1",
     "babel-plugin-module-resolver": "^4.1.0",
     "eslint": "^6.5.1",
     "jest": "^25.1.0",

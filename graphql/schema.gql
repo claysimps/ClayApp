@@ -13,20 +13,20 @@ input BookInput {
   title: String!
 }
 
-"""This is the portfolio payload"""
+"""This is the Book payload"""
 type BookPayload {
   author: String!
-  bookUrl: String
-  classification: String
+  bookUrl: String!
+  classification: String!
   id: ID!
-  queryType: String!
-  synopsis: String
+  queryType: String
+  synopsis: String!
   title: String!
 }
 
 type Mutation {
   addBook(data: BookInput!): SuccessPayload!
-  addPortfolioProject(data: PortfolioInput!): SuccessPayload!
+  addProject(data: PortfolioInput!): SuccessPayload!
 }
 
 """Portfolio input"""
@@ -50,13 +50,13 @@ type PortfolioPayload {
   headerFooter: String!
   headerTitle: String!
   id: ID!
-  projectName: String!
-  queryType: String!
+  projectName: String
+  queryType: String
 }
 
 type Query {
-  getAllBooks(data: String!): [BookPayload!]!
-  getAllProjectsByType(data: String!): [PortfolioPayload!]!
+  getBooks(data: String!): [BookPayload!]!
+  getProjects(data: String!): [PortfolioPayload!]!
 }
 
 """confirms upload"""

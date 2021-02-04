@@ -4,18 +4,19 @@ import {
   StyledPortfolioListContainer,
   StyledButtonWrapper,
 } from "./PortfolioContainer.styles";
-import { PortfolioCardProps } from "./PortfolioContainer.types";
+import { PortfolioPayload as PortfolioPayloadProps } from "../../graphql/generated/gql";
 
 export const PortfolioContainer = ({
+  id,
   headerTitle,
   headerBody,
   headerFooter,
   cardBodyText,
   buttonOptionOne,
   buttonOptionTwo,
-}: PortfolioCardProps) => {
+}: PortfolioPayloadProps) => {
   return (
-    <StyledPortfolioListContainer>
+    <StyledPortfolioListContainer key={id}>
       <Card>
         <Card.Header>
           <StyledBaseText

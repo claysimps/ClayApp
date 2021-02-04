@@ -35,6 +35,6 @@ export const Layout = {
   },
   modalSize: {
     width: width * 0.86,
-    height: height * 0.7,
+    height: height * 0.87,
   },
 };

@@ -18,10 +18,10 @@ export const TextInput = ({
 }: InputProps) => {
   const dispatch = useAppDispatch();
 
-  const onChangeText = () => {
+  const onChangeText = (v: string) => {
     dispatch(
       setInputValues({
-        value,
+        value: v,
         fieldName,
       }),
     );
