@@ -11,8 +11,6 @@ import {
   pink,
 } from "../../constants";
 
-import { StyledBaseText } from "../Text";
-
 export interface StyledCardProps extends NeuDepthProps, ThemeProps {
   fill?: boolean;
   textColor?: typeof light.theme | typeof dark.theme | typeof pink.theme;
@@ -43,25 +41,10 @@ export const StyledCardHeader = styled.View<StyledCardProps>`
 
 export const StyledCardBodyWrapper = styled.View<StyledCardProps>`
   height: 180px;
-  /* flex-direction: column; */
   flex: 1;
   padding: 15px;
 `;
 
-export const StyledCardBodyButtonWrapper = styled.View<StyledCardProps>`
-  height: 180px;
-  justify-content: center;
-  flex-direction: row;
-  flex: 1;
-`;
-
 export const StyledCardBodyContainer = styled.View<StyledCardProps>`
-  /* align-items: center; */
   flex-direction: row;
-`;
-
-export const StyledHeaderText = styled(StyledBaseText)`
-  font-weight: 900;
-  font-size: 14px;
-  color: white;
 `;

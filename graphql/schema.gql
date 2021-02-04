@@ -31,8 +31,10 @@ type Mutation {
 
 """Portfolio input"""
 input PortfolioInput {
+  buttonOneLink: String!
   buttonOptionOne: String!
   buttonOptionTwo: String
+  buttonTwoLink: String
   cardBodyText: String!
   headerBody: String!
   headerFooter: String!
@@ -43,8 +45,10 @@ input PortfolioInput {
 
 """This is the portfolio payload"""
 type PortfolioPayload {
+  buttonOneLink: String!
   buttonOptionOne: String!
   buttonOptionTwo: String
+  buttonTwoLink: String
   cardBodyText: String!
   headerBody: String!
   headerFooter: String!

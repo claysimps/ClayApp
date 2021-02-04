@@ -3,6 +3,7 @@ import { Card, StyledBaseText, Button } from "components";
 import {
   StyledPortfolioListContainer,
   StyledButtonWrapper,
+  StyledBodyContainer,
 } from "./PortfolioContainer.styles";
 import { PortfolioPayload as PortfolioPayloadProps } from "../../graphql/generated/gql";
 
@@ -39,13 +40,15 @@ export const PortfolioContainer = ({
           </StyledBaseText>
         </Card.Header>
         <Card.Body>
-          <StyledBaseText fontSize={16} fontWeight="regular">
-            {cardBodyText}
-          </StyledBaseText>
-          <StyledButtonWrapper>
-            <Button title={buttonOptionOne} />
-            {buttonOptionTwo && <Button title={buttonOptionTwo} />}
-          </StyledButtonWrapper>
+          <StyledBodyContainer>
+            <StyledBaseText fontSize={16} fontWeight="regular">
+              {cardBodyText}
+            </StyledBaseText>
+            <StyledButtonWrapper>
+              <Button title={buttonOptionOne} />
+              {buttonOptionTwo && <Button title={buttonOptionTwo} />}
+            </StyledButtonWrapper>
+          </StyledBodyContainer>
         </Card.Body>
       </Card>
     </StyledPortfolioListContainer>
