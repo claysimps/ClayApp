@@ -5,7 +5,12 @@ export const StyledPortfolioListContainer = styled.View`
   align-items: center;
 `;
 
+export const StyledBodyContainer = styled.View`
+  flex: 1;
+`;
+
 export const StyledButtonWrapper = styled.View`
   flex-direction: row;
-  align-content: space-between;
+  bottom: 5px;
+  position: absolute;
 `;

@@ -1,15 +1,12 @@
 export const iconDetails = [
   {
-    iconName: "home-city-outline",
+    iconName: "home-outline",
   },
   {
-    iconName: "clipboard-account-outline",
+    iconName: "briefcase-search-outline",
   },
   {
-    iconName: "calendar-account-outline",
-  },
-  {
-    iconName: "timetable",
+    iconName: "puzzle-heart-outline",
   },
   {
     iconName: "account-cog-outline",

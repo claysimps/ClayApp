@@ -1,0 +1,21 @@
+fragment UploadSuccess on SuccessPayload {
+  successMessage
+}
+
+fragment BookFields on BookPayload {
+  author
+  bookUrl
+  classification
+  id
+  synopsis
+  title
+}
+fragment ProjectFields on PortfolioPayload {
+  buttonOptionOne
+  buttonOptionTwo
+  cardBodyText
+  headerBody
+  headerFooter
+  headerTitle
+  id
+}

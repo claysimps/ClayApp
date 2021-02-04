@@ -1,41 +1,28 @@
 import React from "react";
 import { FlatList } from "react-native";
-import { useQuery } from "urql";
 import { StackNavigationProp } from "@react-navigation/stack";
 
-import {
-  ScreenLayout,
-  Divider,
-  OpenModalButton,
-  StyledBaseText,
-} from "components";
+import { ScreenLayout, Divider, OpenModalButton } from "components";
 import { InterestsContainer } from "containers";
-import { getBooksList, screenInfo, BooksListDataProps } from "./booksListData";
+import { screenInfo } from "./booksListData";
 import { SCREENS } from "../../../constants";
 import { RootStackParamList } from "../../../navigation/RootStack";
+import { BookPayload, useGetBooksQuery } from "../../../graphql/generated/gql";
 
 type BookNavigationProp = StackNavigationProp<RootStackParamList>;
 
 export type BookScreenProps = {
   navigation: BookNavigationProp;
 };
-type ItemProps = { item: BooksListDataProps };
+type ItemProps = { item: BookPayload };
 
 export const BooksScreen = ({ navigation }: BookScreenProps) => {
-  const [{ data, fetching, error }] = useQuery({
-    query: getBooksList,
+  const [{ data }] = useGetBooksQuery({
+    variables: { queryType: "book" },
   });
-  if (fetching) {
+  if (!data) {
     return null;
   }
-  if (error) {
-    return (
-      <StyledBaseText>
-        Huh, something went wrong... {error.message}
-      </StyledBaseText>
-    );
-  }
-
   const handleWebView = (bookUrl: string, title: string) => {
     navigation.navigate(SCREENS.WebviewModal, {
       bookUrl: bookUrl,
@@ -59,7 +46,7 @@ export const BooksScreen = ({ navigation }: BookScreenProps) => {
       <ScreenLayout.Body>
         <Divider />
         <FlatList
-          data={data.getAllBooks}
+          data={data.getBooks}
           renderItem={bookList}
           keyExtractor={(item) => item.id}
         />
@@ -70,29 +57,3 @@ export const BooksScreen = ({ navigation }: BookScreenProps) => {
     </ScreenLayout>
   );
 };
-
-/**  {webView ? (
-      <ScreenLayout.Info infoText={screenInfo} />
-      <ScreenLayout.Body>
-        <Divider />
-        <FlatList
-          data={data.getAllBooks}
-          renderItem={bookList}
-          keyExtractor={(item) => item.id}
-        />
-        <OpenModalButton
-          onPress={() => navigation.navigate(SCREENS.BookSuggestionModal)}
-        />
-     </ScreenLayout.Body>
-     ) : (  <Webview
-     style={{ marginTop: 20 }}
-     source={{ uri: website }}
-   />
-   )}
-
-         ) : (
-        <Webview source={{ uri: website }} />
-      )}
-    </>
-
-    */

@@ -9,12 +9,10 @@ export interface ModalProps {
   children: React.ReactNode;
 }
 
-export const Modal = ({ children }: ModalProps) => {
-  return (
-    <StyledModalContainer>
-      <StyledModalWrapper>
-        <StyledNeuShadow>{children}</StyledNeuShadow>
-      </StyledModalWrapper>
-    </StyledModalContainer>
-  );
-};
+export const Modal = ({ children }: ModalProps) => (
+  <StyledModalContainer>
+    <StyledModalWrapper>
+      <StyledNeuShadow>{children}</StyledNeuShadow>
+    </StyledModalWrapper>
+  </StyledModalContainer>
+);

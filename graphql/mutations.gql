@@ -1,0 +1,11 @@
+mutation AddBook($BookInput: BookInput!) {
+  addBook(data: $BookInput) {
+    ...UploadSuccess
+  }
+}
+
+mutation AddProject($PortfolioInput: PortfolioInput!) {
+  addProject(data: $PortfolioInput) {
+    ...UploadSuccess
+  }
+}

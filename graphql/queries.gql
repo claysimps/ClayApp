@@ -1,0 +1,11 @@
+query GetBooks($queryType: String!) {
+  getBooks(data: $queryType) {
+    ...BookFields
+  }
+}
+
+query GetProjects($queryType: String!) {
+  getProjects(data: $queryType) {
+    ...ProjectFields
+  }
+}

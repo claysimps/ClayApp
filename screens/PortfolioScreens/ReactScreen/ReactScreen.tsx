@@ -1,33 +1,25 @@
 import React from "react";
 import { FlatList } from "react-native";
-import { ScreenLayout, Divider, StyledBaseText } from "components";
+import { ScreenLayout, Divider } from "components";
 import { PortfolioContainer } from "containers";
+import { screenInfo } from "./reactScreenData";
 import {
-  reactProjects,
-  screenInfo,
-  ReactScreenDataProps,
-} from "./reactScreenData";
+  PortfolioPayload,
+  useGetProjectsQuery,
+} from "../../../graphql/generated/gql";
 
-import { useQuery } from "urql";
-
-type ItemProps = { item: ReactScreenDataProps };
+type ItemProps = { item: PortfolioPayload };
 
 export const ReactScreen = () => {
-  const [{ data, fetching, error }] = useQuery({
-    query: reactProjects,
+  const [{ data }] = useGetProjectsQuery({
+    variables: { queryType: "reactProject" },
   });
-  if (fetching) {
+  if (!data) {
     return null;
-  }
-  if (error) {
-    return (
-      <StyledBaseText>
-        Huh, something went wrong... {error.message}
-      </StyledBaseText>
-    );
   }
   const portfolioCard = ({ item }: ItemProps) => (
     <PortfolioContainer
+      id={item.id}
       headerTitle={item.headerTitle}
       headerBody={item.headerBody}
       headerFooter={item.headerFooter}
@@ -41,7 +33,7 @@ export const ReactScreen = () => {
       <ScreenLayout.Body>
         <Divider />
         <FlatList
-          data={data.getAllProjectsByType}
+          data={data.getProjects}
           renderItem={portfolioCard}
           keyExtractor={(item) => item.id}
         />
