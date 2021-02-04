@@ -25,7 +25,7 @@ export const BooksScreen = ({ navigation }: BookScreenProps) => {
   }
   const handleWebView = (bookUrl: string, title: string) => {
     navigation.navigate(SCREENS.WebviewModal, {
-      bookUrl: bookUrl,
+      url: bookUrl,
       screenTitle: title,
     });
   };

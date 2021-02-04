@@ -42,6 +42,8 @@ export type PortfolioPayload = {
   headerBody: Scalars["String"];
   headerFooter: Scalars["String"];
   cardBodyText: Scalars["String"];
+  buttonOneLink: Scalars["String"];
+  buttonTwoLink?: Maybe<Scalars["String"]>;
   buttonOptionOne: Scalars["String"];
   buttonOptionTwo?: Maybe<Scalars["String"]>;
 };
@@ -86,6 +88,8 @@ export type PortfolioInput = {
   headerBody: Scalars["String"];
   headerFooter: Scalars["String"];
   cardBodyText: Scalars["String"];
+  buttonOneLink: Scalars["String"];
+  buttonTwoLink?: Maybe<Scalars["String"]>;
   buttonOptionOne: Scalars["String"];
   buttonOptionTwo?: Maybe<Scalars["String"]>;
 };
@@ -112,8 +116,10 @@ export type BookFieldsFragment = { __typename?: "BookPayload" } & Pick<
 
 export type ProjectFieldsFragment = { __typename?: "PortfolioPayload" } & Pick<
   PortfolioPayload,
+  | "buttonOneLink"
   | "buttonOptionOne"
   | "buttonOptionTwo"
+  | "buttonTwoLink"
   | "cardBodyText"
   | "headerBody"
   | "headerFooter"
@@ -172,8 +178,10 @@ export const BookFieldsFragmentDoc = gql`
 `;
 export const ProjectFieldsFragmentDoc = gql`
   fragment ProjectFields on PortfolioPayload {
+    buttonOneLink
     buttonOptionOne
     buttonOptionTwo
+    buttonTwoLink
     cardBodyText
     headerBody
     headerFooter

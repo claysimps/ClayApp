@@ -11,8 +11,10 @@ fragment BookFields on BookPayload {
   title
 }
 fragment ProjectFields on PortfolioPayload {
+  buttonOneLink
   buttonOptionOne
   buttonOptionTwo
+  buttonTwoLink
   cardBodyText
   headerBody
   headerFooter

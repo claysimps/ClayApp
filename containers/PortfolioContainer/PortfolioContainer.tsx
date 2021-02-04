@@ -5,7 +5,7 @@ import {
   StyledButtonWrapper,
   StyledBodyContainer,
 } from "./PortfolioContainer.styles";
-import { PortfolioPayload as PortfolioPayloadProps } from "../../graphql/generated/gql";
+import { PortfolioContainerProps } from "./PortfolioContainer.types";
 
 export const PortfolioContainer = ({
   id,
@@ -15,7 +15,11 @@ export const PortfolioContainer = ({
   cardBodyText,
   buttonOptionOne,
   buttonOptionTwo,
-}: PortfolioPayloadProps) => {
+  buttonOneLink,
+  buttonTwoLink,
+  onPressButtonOne,
+  onPressButtonTwo,
+}: PortfolioContainerProps) => {
   return (
     <StyledPortfolioListContainer key={id}>
       <Card>
@@ -45,8 +49,18 @@ export const PortfolioContainer = ({
               {cardBodyText}
             </StyledBaseText>
             <StyledButtonWrapper>
-              <Button title={buttonOptionOne} />
-              {buttonOptionTwo && <Button title={buttonOptionTwo} />}
+              <Button
+                onPress={onPressButtonOne}
+                title={buttonOptionOne}
+                {...buttonOneLink}
+              />
+              {buttonOptionTwo && (
+                <Button
+                  onPress={onPressButtonTwo}
+                  title={buttonOptionTwo}
+                  {...buttonTwoLink}
+                />
+              )}
             </StyledButtonWrapper>
           </StyledBodyContainer>
         </Card.Body>
