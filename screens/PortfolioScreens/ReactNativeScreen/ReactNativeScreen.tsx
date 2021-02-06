@@ -1,8 +1,8 @@
 import React from "react";
-import { FlatList, Alert } from "react-native";
+import { FlatList } from "react-native";
 import { ScreenLayout, Divider } from "components";
 import { PortfolioContainer } from "containers";
-import { screenInfo } from "./reactNativeScreenData";
+import { screenInfo, alertBoxAction } from "./reactNativeScreenData";
 import {
   useGetProjectsQuery,
   PortfolioPayload,
@@ -31,33 +31,16 @@ export const ReactNativeScreen = ({ navigation }: RootStackNavigationProp) => {
     dispatch(setThemeMode(PINK));
   };
 
-  const handleWebView = (title: string, webUrl?: string) => {
-    const alertMessage = () => {
-      Alert.alert(
-        "You're previewing Clay App! 😀 Have you tried Unicorn mode yet?",
-
-        "You should, it's magical! 🧞‍♀️",
-        [
-          {
-            text: "Maybe later",
-          },
-          {
-            text: "No thanks",
-            onPress: () => Alert.alert("Meanie! 😝"),
-            style: "cancel",
-          },
-          { text: "OK", onPress: setPinkModeTheme },
-        ],
-        { cancelable: false },
-      );
-    };
+  const handleWebView = (title: string, webUrl: string) => {
     const openWebview = () => {
       navigation.navigate(SCREENS.WebviewModal, {
         url: webUrl,
         screenTitle: title,
       });
     };
-    title === "Clay App" && webUrl === null ? alertMessage() : openWebview();
+    title === "Clay App" && webUrl === null
+      ? alertBoxAction(setPinkModeTheme)
+      : openWebview();
   };
   const portfolioCard = ({ item }: ItemProps) => (
     <PortfolioContainer
@@ -74,7 +57,7 @@ export const ReactNativeScreen = ({ navigation }: RootStackNavigationProp) => {
         handleWebView(item.headerTitle, item.buttonOneLink)
       }
       onPressButtonTwo={() =>
-        handleWebView(item.headerTitle, item.buttonTwoLink)
+        handleWebView(item.headerTitle, item.buttonTwoLink as string)
       }
     />
   );

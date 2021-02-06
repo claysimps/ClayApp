@@ -19,7 +19,7 @@ export type RootStackParamList = {
   [SCREENS.Main]: undefined;
   [SCREENS.BookSuggestionModal]: undefined;
   [SCREENS.WebviewModal]: {
-    url: string | undefined;
+    url: string;
     screenTitle: string;
   };
 };

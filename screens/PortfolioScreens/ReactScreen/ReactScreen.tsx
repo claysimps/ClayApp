@@ -21,7 +21,7 @@ export const ReactScreen = ({ navigation }: RootStackNavigationProp) => {
     return null;
   }
 
-  const handleWebView = (title: string, webUrl?: string) => {
+  const handleWebView = (title: string, webUrl: string) => {
     navigation.navigate(SCREENS.WebviewModal, {
       url: webUrl,
       screenTitle: title,
@@ -42,7 +42,7 @@ export const ReactScreen = ({ navigation }: RootStackNavigationProp) => {
         handleWebView(item.headerTitle, item.buttonOneLink)
       }
       onPressButtonTwo={() =>
-        handleWebView(item.headerTitle, item.buttonTwoLink)
+        handleWebView(item.headerTitle, item.buttonTwoLink as string)
       }
     />
   );

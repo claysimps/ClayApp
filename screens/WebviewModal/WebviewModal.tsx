@@ -29,7 +29,7 @@ export const WebviewModal = ({ route, navigation }: WebviewModalProps) => {
     navigation.pop();
   };
   const config = {
-    velocityThreshold: 0.1,
+    velocityThreshold: 0.2,
     directionalOffsetThreshold: 80,
   };
   return (

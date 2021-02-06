@@ -3,17 +3,16 @@ import { createMaterialTopTabNavigator } from "@react-navigation/material-top-ta
 import { createStackNavigator } from "@react-navigation/stack";
 
 import { SCREENS } from "../constants";
-import { ReactScreen } from "screens";
 import { TopTabsBar } from "components";
 import { BooksScreen } from "../screens/InterestsScreens";
+import { ArticlesScreen } from "../screens/InterestsScreens/ArticlesScreen";
 
 export type InterestsStackParamList = {
   [SCREENS.InterestsStack]: undefined;
 };
 export type InterestsTabsParamList = {
-  [SCREENS.ReactNativePortfolio]: undefined;
-  [SCREENS.ReactPortfolio]: undefined;
   [SCREENS.BooksScreen]: undefined;
+  [SCREENS.ArticlesScreen]: undefined;
 };
 
 const InterestsTopTabs = createMaterialTopTabNavigator<InterestsTabsParamList>();
@@ -25,16 +24,16 @@ export const InterestsStack = () => (
       {() => (
         <InterestsTopTabs.Navigator
           tabBar={(props) => <TopTabsBar {...props} />}
-          initialRouteName={SCREENS.ReactNativePortfolio}>
+          initialRouteName={SCREENS.BooksScreen}>
           <InterestsTopTabs.Screen
             options={{ title: "L&D" }}
-            name={SCREENS.ReactNativePortfolio}
+            name={SCREENS.BooksScreen}
             component={BooksScreen}
           />
           <InterestsTopTabs.Screen
-            options={{ title: "Music" }}
-            name={SCREENS.ReactPortfolio}
-            component={ReactScreen}
+            options={{ title: "Writing" }}
+            name={SCREENS.ArticlesScreen}
+            component={ArticlesScreen}
           />
         </InterestsTopTabs.Navigator>
       )}

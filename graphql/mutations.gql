@@ -9,3 +9,9 @@ mutation AddProject($PortfolioInput: PortfolioInput!) {
     ...UploadSuccess
   }
 }
+
+mutation AddArticle($ArticleInput: ArticleInput!) {
+  addArticle(data: $ArticleInput) {
+    ...UploadSuccess
+  }
+}

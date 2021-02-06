@@ -1,5 +1,4 @@
 import React from "react";
-// import ReactMore from "react-native-read-more-text";
 import { InterestsProps } from "./InterestsContainer.types";
 import {
   StyledInterestsListContainer,
@@ -34,7 +33,7 @@ export const InterestsContainer = ({
         {bookUrl && (
           <TouchableWithoutFeedback onPress={onPress}>
             <StyledInterestsText underline size={16} fontWeight="regular">
-              View Book
+              View online
             </StyledInterestsText>
           </TouchableWithoutFeedback>
         )}
