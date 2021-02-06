@@ -1,2 +1,2 @@
-export type { RootStackNavigationProp } from "./RootStack";
+export type { RootStackNavigationProp, RootStackParamList } from "./RootStack";
 export { Navigation } from "./Navigation";

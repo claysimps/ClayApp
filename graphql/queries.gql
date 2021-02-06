@@ -9,3 +9,9 @@ query GetProjects($queryType: String!) {
     ...ProjectFields
   }
 }
+
+query GetArticles($queryType: String!) {
+  getArticles(data: $queryType) {
+    ...ArticleFields
+  }
+}

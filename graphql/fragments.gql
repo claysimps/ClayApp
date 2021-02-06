@@ -10,6 +10,7 @@ fragment BookFields on BookPayload {
   synopsis
   title
 }
+
 fragment ProjectFields on PortfolioPayload {
   buttonOneLink
   buttonOptionOne
@@ -19,5 +20,13 @@ fragment ProjectFields on PortfolioPayload {
   headerBody
   headerFooter
   headerTitle
+  id
+}
+
+fragment ArticleFields on ArticlePayload {
+  title
+  publisher
+  articleUrl
+  excerpt
   id
 }

@@ -22,6 +22,7 @@ export type Query = {
   __typename?: "Query";
   getProjects: Array<PortfolioPayload>;
   getBooks: Array<BookPayload>;
+  getArticles: Array<ArticlePayload>;
 };
 
 export type QueryGetProjectsArgs = {
@@ -29,6 +30,10 @@ export type QueryGetProjectsArgs = {
 };
 
 export type QueryGetBooksArgs = {
+  data: Scalars["String"];
+};
+
+export type QueryGetArticlesArgs = {
   data: Scalars["String"];
 };
 
@@ -60,10 +65,22 @@ export type BookPayload = {
   synopsis: Scalars["String"];
 };
 
+/** Article Payload */
+export type ArticlePayload = {
+  __typename?: "ArticlePayload";
+  id: Scalars["ID"];
+  queryType?: Maybe<Scalars["String"]>;
+  title: Scalars["String"];
+  publisher: Scalars["String"];
+  articleUrl: Scalars["String"];
+  excerpt: Scalars["String"];
+};
+
 export type Mutation = {
   __typename?: "Mutation";
   addProject: SuccessPayload;
   addBook: SuccessPayload;
+  addArticle: SuccessPayload;
 };
 
 export type MutationAddProjectArgs = {
@@ -72,6 +89,10 @@ export type MutationAddProjectArgs = {
 
 export type MutationAddBookArgs = {
   data: BookInput;
+};
+
+export type MutationAddArticleArgs = {
+  data: ArticleInput;
 };
 
 /** confirms upload */
@@ -104,6 +125,15 @@ export type BookInput = {
   synopsis?: Maybe<Scalars["String"]>;
 };
 
+/** Article input */
+export type ArticleInput = {
+  queryType: Scalars["String"];
+  title: Scalars["String"];
+  publisher: Scalars["String"];
+  articleUrl: Scalars["String"];
+  excerpt: Scalars["String"];
+};
+
 export type UploadSuccessFragment = { __typename?: "SuccessPayload" } & Pick<
   SuccessPayload,
   "successMessage"
@@ -127,6 +157,11 @@ export type ProjectFieldsFragment = { __typename?: "PortfolioPayload" } & Pick<
   | "id"
 >;
 
+export type ArticleFieldsFragment = { __typename?: "ArticlePayload" } & Pick<
+  ArticlePayload,
+  "title" | "publisher" | "articleUrl" | "excerpt" | "id"
+>;
+
 export type AddBookMutationVariables = Exact<{
   BookInput: BookInput;
 }>;
@@ -141,6 +176,14 @@ export type AddProjectMutationVariables = Exact<{
 
 export type AddProjectMutation = { __typename?: "Mutation" } & {
   addProject: { __typename?: "SuccessPayload" } & UploadSuccessFragment;
+};
+
+export type AddArticleMutationVariables = Exact<{
+  ArticleInput: ArticleInput;
+}>;
+
+export type AddArticleMutation = { __typename?: "Mutation" } & {
+  addArticle: { __typename?: "SuccessPayload" } & UploadSuccessFragment;
 };
 
 export type GetBooksQueryVariables = Exact<{
@@ -159,6 +202,14 @@ export type GetProjectsQuery = { __typename?: "Query" } & {
   getProjects: Array<
     { __typename?: "PortfolioPayload" } & ProjectFieldsFragment
   >;
+};
+
+export type GetArticlesQueryVariables = Exact<{
+  queryType: Scalars["String"];
+}>;
+
+export type GetArticlesQuery = { __typename?: "Query" } & {
+  getArticles: Array<{ __typename?: "ArticlePayload" } & ArticleFieldsFragment>;
 };
 
 export const UploadSuccessFragmentDoc = gql`
@@ -186,6 +237,15 @@ export const ProjectFieldsFragmentDoc = gql`
     headerBody
     headerFooter
     headerTitle
+    id
+  }
+`;
+export const ArticleFieldsFragmentDoc = gql`
+  fragment ArticleFields on ArticlePayload {
+    title
+    publisher
+    articleUrl
+    excerpt
     id
   }
 `;
@@ -217,6 +277,20 @@ export function useAddProjectMutation() {
     AddProjectDocument,
   );
 }
+export const AddArticleDocument = gql`
+  mutation AddArticle($ArticleInput: ArticleInput!) {
+    addArticle(data: $ArticleInput) {
+      ...UploadSuccess
+    }
+  }
+  ${UploadSuccessFragmentDoc}
+`;
+
+export function useAddArticleMutation() {
+  return Urql.useMutation<AddArticleMutation, AddArticleMutationVariables>(
+    AddArticleDocument,
+  );
+}
 export const GetBooksDocument = gql`
   query GetBooks($queryType: String!) {
     getBooks(data: $queryType) {
@@ -245,6 +319,23 @@ export function useGetProjectsQuery(
 ) {
   return Urql.useQuery<GetProjectsQuery>({
     query: GetProjectsDocument,
+    ...options,
+  });
+}
+export const GetArticlesDocument = gql`
+  query GetArticles($queryType: String!) {
+    getArticles(data: $queryType) {
+      ...ArticleFields
+    }
+  }
+  ${ArticleFieldsFragmentDoc}
+`;
+
+export function useGetArticlesQuery(
+  options: Omit<Urql.UseQueryArgs<GetArticlesQueryVariables>, "query"> = {},
+) {
+  return Urql.useQuery<GetArticlesQuery>({
+    query: GetArticlesDocument,
     ...options,
   });
 }
