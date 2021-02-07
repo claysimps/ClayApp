@@ -2,7 +2,7 @@ const mainColourDark = "rgba(254, 156, 185, 1)";
 
 export const dark = {
   theme: {
-    text: "rgba(255, 255, 255, 0.9)",
+    text: "rgba(218, 218, 218, 0.8)",
     secondaryText: "#B0B1BB",
     ctaText: mainColourDark,
     textOnColourBg: "rgba(0, 0, 0, 0.8)",

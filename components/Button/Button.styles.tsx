@@ -57,8 +57,8 @@ export const StyledNeuShadow = styled(AnimatedNeomorph)<StyledButtonProps>`
   height: ${buttonHeight}px;
   background: ${(props) => props.theme[props.buttonColour || "background"]};
   shadow-radius: ${(props) => neuDepth[props.depth || "tall"]};
-  ${(props) => props.pressed && pressedState}
-  ${(props) => props.ctaButton && ctaButton}
+  ${(props) => props.pressed && pressedState};
+  ${(props) => props.ctaButton && ctaButton};
 `;
 
 export const StyledButtonText = styled(StyledBaseText)<StyledButtonProps>`

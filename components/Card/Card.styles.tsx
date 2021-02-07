@@ -1,6 +1,7 @@
 import { Animated } from "react-native";
 import { Neomorph } from "react-native-neomorph-shadows";
 import styled from "styled-components/native";
+// import SkeletonContent from "react-native-skeleton-content";
 import {
   NeuDepthProps,
   neuDepth,
@@ -17,6 +18,12 @@ export interface StyledCardProps extends NeuDepthProps, ThemeProps {
 }
 
 const AnimatedNeomorph = Animated.createAnimatedComponent(Neomorph);
+
+// export const SkeletonContentWrapper = styled(SkeletonContent)<StyledCardProps>`
+//   flex: 1;
+//   bone-color: ${(props) => props.theme.primary.tabIconDefault};
+//   highlight-color: ${(props) => props.theme.primary.secondaryText};
+// `;
 
 export const StyledCardSpacer = styled.View`
   padding: 15px 0px;

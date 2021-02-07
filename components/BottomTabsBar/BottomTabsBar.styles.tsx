@@ -43,8 +43,8 @@ export const StyledNeuShadow = styled(AnimatedNeomorph)<StyledBottomTabProps>`
   justify-content: center;
   align-content: center;
   align-items: center;
-  height: 56px;
-  width: 56px;
+  height: ${Layout.roundButton.small}px;
+  width: ${Layout.roundButton.small}px;
   border-radius: 28px;
   background: ${(props) => props.theme.background};
   shadow-radius: ${(props) => neuDepth[props.depth || "normal"]};

@@ -21,3 +21,10 @@ export const Icon = ({ size, name, iconColour }: IconProps) => (
     iconColour={iconColour}
   />
 );
+export const SMIcon = ({ size, name, iconColour }: IconProps) => (
+  <StyledVectorIcon
+    name={name}
+    size={IconSizes[size]}
+    iconColour={iconColour}
+  />
+);

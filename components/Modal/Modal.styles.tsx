@@ -3,7 +3,9 @@ import { Neomorph } from "react-native-neomorph-shadows";
 import { Animated } from "react-native";
 import { Layout, ThemeProps, neuDepth, NeuDepthProps } from "../../constants";
 
-export interface StyledModalProps extends NeuDepthProps, ThemeProps {}
+export interface StyledModalProps extends NeuDepthProps, ThemeProps {
+  size?: number;
+}
 
 const AnimatedNeomorph = Animated.createAnimatedComponent(Neomorph);
 
@@ -29,8 +31,8 @@ export const StyledModalWrapper = styled.View<StyledModalProps>`
 export const StyledNeuShadow = styled(AnimatedNeomorph)<StyledModalProps>`
   shadow-radius: ${(props) => neuDepth[props.depth || "giant"]};
   background: ${(props) => props.theme.background};
-  width: ${modalWidth}px;
-  height: ${modalHeight}px;
+  width: ${(props) => props.size || modalWidth}px;
+  height: ${(props) => props.size || modalHeight}px;
   border-radius: 35px;
   justify-content: center;
   align-items: center;
