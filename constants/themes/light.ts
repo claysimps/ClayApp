@@ -2,7 +2,7 @@ const mainColourLight = "rgba(254, 91, 172, 1)";
 
 export const light = {
   theme: {
-    text: "rgba(0, 0, 0, 0.8)",
+    text: "rgba(100, 101, 114, 0.9)",
     secondaryText: "#B0B1BFFF",
     ctaText: mainColourLight,
     textOnColourBg: "rgba(255, 255, 255, 0.8)",

@@ -24,6 +24,10 @@ export const Layout = {
     half: width * 0.28,
     height: height * 0.04,
   },
+  roundButton: {
+    small: height * 0.06,
+    large: height * 0.075,
+  },
   input: {
     width: width * 0.75,
     height: height * 0.04,

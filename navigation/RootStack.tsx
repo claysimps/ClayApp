@@ -5,7 +5,12 @@ import {
 } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { SCREENS } from "constants/screensEnum";
-import { HomeScreen, BookSuggestionModal, WebviewModal } from "screens";
+import {
+  HomeScreen,
+  BookSuggestionModal,
+  WebviewModal,
+  ContactModal,
+} from "screens";
 import { BottomTabsBar } from "components";
 import { PortfolioStack } from "./PortfolioStack";
 import { InterestsStack } from "./InterestsStack";
@@ -18,6 +23,7 @@ export type RootStackNavigationProp = {
 export type RootStackParamList = {
   [SCREENS.Main]: undefined;
   [SCREENS.BookSuggestionModal]: undefined;
+  [SCREENS.ContactModal]: undefined;
   [SCREENS.WebviewModal]: {
     url: string;
     screenTitle: string;
@@ -102,6 +108,13 @@ export const RootStack = () => {
           title: route.params.screenTitle,
           headerBackTitle: "back",
         })}
+      />
+      <MainStack.Screen
+        name={SCREENS.ContactModal}
+        component={ContactModal}
+        options={{
+          headerShown: false,
+        }}
       />
     </MainStack.Navigator>
   );

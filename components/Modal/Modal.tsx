@@ -7,12 +7,13 @@ import {
 
 export interface ModalProps {
   children: React.ReactNode;
+  size: number;
 }
 
-export const Modal = ({ children }: ModalProps) => (
+export const Modal = ({ children, size }: ModalProps) => (
   <StyledModalContainer>
     <StyledModalWrapper>
-      <StyledNeuShadow>{children}</StyledNeuShadow>
+      <StyledNeuShadow size={size}>{children}</StyledNeuShadow>
     </StyledModalWrapper>
   </StyledModalContainer>
 );

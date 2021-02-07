@@ -13,3 +13,4 @@ export * from "./TopTabsBar";
 export * from "./UnicornButton";
 export * from "./ThemeModeSwitch";
 export * from "./LoadingSpinner";
+export * from "./ButtonRound";

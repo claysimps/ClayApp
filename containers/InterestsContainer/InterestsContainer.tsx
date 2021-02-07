@@ -15,35 +15,33 @@ export const InterestsContainer = ({
   synopsis,
   bookUrl,
   onPress,
-}: InterestsProps) => {
-  return (
-    <StyledInterestsListContainer>
-      <StyledInterestsWrapper>
-        <StyledInterestsText size={22} fontWeight="black">
-          {title}
+}: InterestsProps) => (
+  <StyledInterestsListContainer>
+    <StyledInterestsWrapper>
+      <StyledInterestsText size={22} fontWeight="black">
+        {title}
+      </StyledInterestsText>
+      <StyledInterestsText size={18} fontWeight="regular">
+        {author}
+      </StyledInterestsText>
+      {classification && (
+        <StyledInterestsText size={16} fontWeight="bold">
+          {classification}
         </StyledInterestsText>
-        <StyledInterestsText size={18} fontWeight="regular">
-          {author}
+      )}
+      {bookUrl && (
+        <TouchableWithoutFeedback onPress={onPress}>
+          <StyledInterestsText underline size={16} fontWeight="regular">
+            View online
+          </StyledInterestsText>
+        </TouchableWithoutFeedback>
+      )}
+      {synopsis && (
+        <StyledInterestsText size={16} fontWeight="regular">
+          {synopsis}
         </StyledInterestsText>
-        {classification && (
-          <StyledInterestsText size={16} fontWeight="bold">
-            {classification}
-          </StyledInterestsText>
-        )}
-        {bookUrl && (
-          <TouchableWithoutFeedback onPress={onPress}>
-            <StyledInterestsText underline size={16} fontWeight="regular">
-              View online
-            </StyledInterestsText>
-          </TouchableWithoutFeedback>
-        )}
-        {synopsis && (
-          <StyledInterestsText size={16} fontWeight="regular">
-            {synopsis}
-          </StyledInterestsText>
-        )}
-      </StyledInterestsWrapper>
-      <Divider raisedDivider />
-    </StyledInterestsListContainer>
-  );
-};
+      )}
+    </StyledInterestsWrapper>
+    <Divider raisedDivider />
+  </StyledInterestsListContainer>
+);
